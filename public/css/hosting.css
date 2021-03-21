@@ -1,0 +1,158 @@
+/* Hero Section */
+.hero-section {
+  background-image: url("../img/hosting.png");
+  background-size: cover;
+  height: 820px;
+  background-repeat: no-repeat;
+  position: relative;
+  box-shadow: 0 5px 10px grey;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-section .overlay h2 {
+  font-size: 56px;
+}
+
+.hero-section .overlay h1 {
+  font-size: 56px;
+  color: #00cbff;
+}
+
+.hero-section .overlay .btn {
+  color: white;
+  background-color: #0088ff;
+  border-radius: 30px;
+  width: 250px;
+}
+
+@media (min-width: 1600px) {
+  .hero-section .overlay h2,
+  .hero-section .overlay h1 {
+    font-size: 64px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .hero-section .overlay h2,
+  .hero-section .overlay h1 {
+    font-size: 48px;
+  }
+  .hero-section {
+    height: 700px;
+  }
+}
+
+@media (max-width: 850px) {
+  .hero-section .overlay h2,
+  .hero-section .overlay h1 {
+    font-size: 32px;
+  }
+  .hero-section {
+    height: 500px;
+  }
+  .hero-section .overlay .btn {
+    width: 180px;
+  }
+}
+
+/* Hosting Section */
+
+#Hosting {
+  margin-top: 60px;
+}
+
+.Hosting-section {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 100px;
+}
+
+.Hosting-section h2 {
+  font-size: 45px;
+}
+
+.Hosting-section .card {
+  border-radius: 15px;
+  border: 0px;
+  box-shadow: 1px 1px 5px 1px gray;
+}
+
+.Hosting-section .card a {
+  background-color: #0088ff;
+  color: white;
+  width: 100%;
+}
+
+@media (max-width: 756px) {
+  .Hosting-section .group {
+    width: 130px;
+    margin-left: 10px;
+  }
+  .Hosting-section h2 {
+    font-size: 30px;
+    font-weight: 600;
+  }
+}
+
+.Hosting-section .lorem-sposum {
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  padding-right: 30px;
+}
+
+.Hosting-section .lorem-sposum .lorem-input {
+  height: 100px;
+  border-radius: 20px;
+  position: relative;
+  outline: 0px;
+  padding-left: 10px;
+}
+
+.Hosting-section .lorem-sposum input::placeholder {
+  padding-left: 10px;
+  color: rgb(173, 173, 173);
+}
+
+.Hosting-section .lorem-sposum h5 {
+  background-color: white;
+  width: 180px;
+  position: absolute;
+  margin-left: 20px;
+  margin-top: -15px;
+}
+
+.Hosting-section .terms-conditions {
+  padding-left: 40px;
+}
+
+.Hosting-section .terms-conditions #terms {
+  height: 15px;
+  width: 20px;
+}
+
+.Hosting-section .submit button {
+  width: 400px;
+  background-color: #0088ff;
+  color: white;
+  border-radius: 10px;
+}
+
+.Hosting-section .choosing {
+  margin-top: 100px;
+}
+
+.Hosting-section .choosing .side-text {
+  font-size: 30px;
+  font-weight: 600;
+  padding-top: 20px;
+  padding-left: 10px;
+}

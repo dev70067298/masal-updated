@@ -1,0 +1,79 @@
+body {
+  font-family: Roboto, "Open Sans", "Helvetica Neue", sans-serif;
+  overflow-x: hidden;
+}
+
+/* NAvbar Section */
+
+.navbar {
+  background-color: rgb(0, 0, 0, 0);
+}
+
+.nav-item {
+  padding-right: 10px;
+}
+
+.navbar .search {
+  position: relative;
+  width: 200px;
+  border-radius: 50px;
+}
+
+.navbar .search-btn {
+  position: absolute;
+  margin-left: 150px;
+  border-radius: 50px;
+  width: 50px;
+  background-color: #0088ff;
+  border: 0px;
+  height: 40px;
+}
+
+@media (max-width: 912px) {
+  .navbar {
+    background-color: rgb(0, 0, 0, 0.5);
+  }
+}
+
+.nav-active {
+  background-color: rgb(0, 0, 0, 0.5);
+}
+
+/* Footer Section */
+
+.footer {
+  background-color: hsl(0, 0%, 95%);
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+
+.footer-section {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.footer-section .heading1 {
+  color: #0088ff;
+}
+
+.footer-section p {
+  margin-top: 15px;
+}
+
+.footer-section .line1 {
+  margin: auto;
+  width: 30%;
+  color: #0088ff;
+  height: 2px;
+}
+
+.footer-section .line2 {
+  color: #0088ff;
+  height: 2px;
+}
+
+.logoBar p {
+  display: inline;
+  font-weight: 900;
+  margin-right: 15px;
+}

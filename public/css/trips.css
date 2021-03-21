@@ -1,0 +1,128 @@
+/* Hero Section */
+.hero-section {
+  background-image: url("../img/sunset.png");
+  background-size: cover;
+  height: 900px;
+  background-repeat: no-repeat;
+  position: relative;
+  box-shadow: 0 5px 10px grey;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-section .overlay h2 {
+  font-size: 56px;
+}
+
+.hero-section .overlay h1 {
+  font-size: 56px;
+  color: #00cbff;
+}
+
+.hero-section .overlay .btn {
+  color: white;
+  background-color: #0088ff;
+  border-radius: 30px;
+  width: 250px;
+}
+
+@media (min-width: 1600px) {
+  .hero-section .overlay h2,
+  .hero-section .overlay h1 {
+    font-size: 64px;
+  }
+}
+
+@media (max-width: 912px) {
+  .hero-section .overlay h2,
+  .hero-section .overlay h1 {
+    font-size: 48px;
+  }
+  .hero-section {
+    height: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section .overlay h2,
+  .hero-section .overlay h1 {
+    font-size: 32px;
+  }
+  .hero-section {
+    height: 500px;
+  }
+  .hero-section .overlay .btn {
+    width: 180px;
+  }
+}
+
+/* Trips Section */
+
+#trips {
+  margin-top: 60px;
+}
+
+.trips-section {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.trips-section h2 {
+  font-size: 45px;
+}
+
+.trips-table {
+  padding-top: 30px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.trips-table .table-heading {
+  width: 100%;
+}
+
+.trips-table .row {
+  border-bottom: 2px solid rgb(201, 200, 200);
+}
+.trips-table .table-heading th {
+  padding-bottom: 20px;
+}
+
+.trips-table .table-heading th:nth-child(2) {
+  border-bottom: 5px solid #0088ff;
+  color: #0088ff;
+}
+
+.table-responsive-md tbody td img {
+  border-radius: 30px;
+}
+
+.table-responsive-md tbody tr {
+  border-bottom: 1px solid rgb(180, 179, 179);
+}
+
+.table-responsive-md tbody tr td {
+  padding-top: 30px;
+}
+
+.trips-table .paginate span {
+  color: #0088ff;
+  padding-right: 10px;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+/* Image Section */
+.image-section {
+  margin-top: 70px;
+}
