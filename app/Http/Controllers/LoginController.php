@@ -28,8 +28,8 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
+    // protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirect = 'login';
     /**
      * Create a new controller instance.
      *
@@ -54,7 +54,7 @@ class LoginController extends Controller
 
       $this->_registerOrLoginUser($user);
         // Return home after login
-       return redirect()->route('login');
+       return redirect()->route('reseacherdash');
     }
     protected function _registerOrLoginUser($data)
     {

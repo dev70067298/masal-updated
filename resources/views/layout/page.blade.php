@@ -27,7 +27,7 @@
               <a class="btn-theme" href="{{route('login')}}">Login</a>
               </li>
               <li class="nav-item">
-              <a class="btn-theme" href="{{route('register')}}">Join</a>
+              <a class="btn-theme" href="{{route('hello')}}">Join</a>
               </li>
 
 

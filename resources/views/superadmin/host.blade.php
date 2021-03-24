@@ -139,7 +139,9 @@
                    <a href="{{route('deactive_researcher',array('id'=>$row->id))}}" class="btn btn-outline-primary"> InActive </a>
                    @endif
                    @if($row->status == 3 || $row->status == 2)
+                   <a href="{{route('active_host',array('id'=>$row->id))}}" class="btn btn-outline-success"> Active </a>
                    <a href="{{route('del_researcher',array('id'=>$row->id))}}" class="btn btn-outline-danger"> Delete </a>
+                   
                    @endif
                                         </td>
                                     </tr>

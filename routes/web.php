@@ -47,7 +47,7 @@ Route::post('/add_package','adminController@add_package')->name('add_package');
 Route::get('/del_package/{id}','adminController@del_package')->name('del_package');
 Route::get('/edit_package/{id}','adminController@edit_package')->name('edit_package');
 Route::post('/update_package/{id}','adminController@update_package')->name('update_package');
-
+Route::get('/active_host/{id}','adminController@active_host')->name('active_host');
 
 //Researcher Routes
 Route::get('/reseacherdash','ResearcherController@reseacherdash')->name('reseacherdash');
@@ -130,3 +130,8 @@ Route::get('/chats', function () {
 
 Route::get('login/google', [App\Http\Controllers\LoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('login/google/callback', [App\Http\Controllers\LoginController::class, 'handleGoogleCallback']);
+
+
+Route::get('facebook', [App\Http\Controllers\FbController::class, 'redirectToFacebook']);
+
+Route::get('facebook/callback', [App\Http\Controllers\FbController::class, 'facebookSignin']);

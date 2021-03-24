@@ -82,14 +82,29 @@
 							<label class="custom-control-label" for="customCheck1">Agree Terms and Conditions</label>
 						</div>
 						<input type="submit" value=" Sign Up" name="submit"class="btn btn-primary btn-block mb-4">
-						<a href="{{ route('login.google') }}">
+						<!-- <a href="{{ route('login.google') }}">
 							<button type="button" class="btn btn-block btn-google">
 								<i class="f"></i>Google
 							</button>
-						</a>						<input type="submit" value=" Facebook" name="submit"class="btn btn-primary btn-block mb-4">
+						</a>						  <a class="btn" href="{{ url('auth/facebook') }}"
+                    style="background-color: #3B5499; color: #ffffff; padding: 8px; width: 100%; text-align: center; display: block; border-radius:4px;">
+                    signup with Facebook
+                </a> -->
+				<br>
+				<a class="btn" href="{{ url('login/google') }}"
+                    style="background-color: #B72D10; color: #ffffff; padding: 8px; width: 100%; text-align: center; display: block; border-radius:4px;">
+                    Login with Google
+                </a>
+                <br>
+
+                <a class="btn" href="{{ url('facebook') }}"
+                    style="background-color: #3B5499; color: #ffffff; padding: 8px; width: 100%; text-align: center; display: block; border-radius:4px;">
+                    Login with Facebook
+                </a>
+            
 						</form>
 						
-						<p class="mb-2">Already have an account? <a href="" class="f-w-400">Signin</a></p>
+						<p class="mb-2">Already have an account? <a href="{{ url('login') }}" class="f-w-400">Signin</a></p>
 					</div>
 				</div>
 			</div>

@@ -176,7 +176,7 @@ class adminController extends Controller
               return redirect()->back()->with('success','Buyer Account Deleted');
          }
 
-
+         
           //Deactivate Researcher
         public function deactive_researcher($id)
         {
@@ -202,7 +202,30 @@ class adminController extends Controller
 
              }
         }
+        public function active_host($id)
+        {
+            if (Auth::check()) {
+                if($this->user->userRole != 1)
+                {
+                 return redirect('/admin');
+                }
+             }
+             else
+             {
+                 return redirect('/admin');
+             }
+             $user=User::find($id);
+             $user->status=1;
+             $user->save();
+             if($user->save())
+             {
+                 return redirect()->back()->with('success','Host Account Active');
+             }
+             else{
+                return redirect()->back()->with('error','Host Account not Active try again');
 
+             }
+        }
 
          //Delete Researcher
          public function del_researcher($id)

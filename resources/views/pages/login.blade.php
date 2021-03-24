@@ -34,12 +34,22 @@
                     <center>
                   <input type="submit" name="submit" value="Login" class="btn-theme">
                 </center>
-                <a href="{{ route('login.google') }}">
+                <!-- <a href="{{ route('login.google') }}">
                     <button type="button" class="btn btn-block btn-google">
                         <i class="f"></i>login with Google
                     </button>
+                </a> -->
+                <br>
+                <a class="btn" href="{{ url('login/google') }}"
+                    style="background-color: #B72D10; color: #ffffff; padding: 8px; width: 100%; text-align: center; display: block; border-radius:4px;">
+                    Login with Google
                 </a>
-            <p class="text-dark text-center mt-2 mb-2"> If New User then/<a href="{{route('register')}}" class="btn">Register</a> </p>
+                <br>
+                <a class="btn" href="{{ url('facebook') }}"
+                    style="background-color: #3B5499; color: #ffffff; padding: 8px; width: 100%; text-align: center; display: block; border-radius:4px;">
+                    Login with Facebook
+                </a>
+            <p class="text-dark text-center mt-2 mb-2"> If New User then/<a href="{{route('hello')}}" class="btn">Register</a> </p>
             </form>
         </div>
     </div>
