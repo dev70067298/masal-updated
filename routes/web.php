@@ -23,7 +23,7 @@ Route::get('/dashboard','adminController@dashboard')->name('dashboard');
 Route::post('/admin_login','authController@admin_login')->name('admin_login');
 Route::get('/admin_logout','authController@admin_logout')->name('admin_logout');
 Route::get('/user_logout','authController@user_logout')->name('user_logout');
-Route::get('/researcher_list','adminController@researcher_list')->name('researcher_list');
+Route::get('/host_list','adminController@host_list')->name('host_list');
 Route::get('/buyer_list','adminController@buyer_list')->name('buyer_list');
 Route::get('/researcher_request','adminController@researcher_request')->name('researcher_request');
 Route::get('/admin_profile','adminController@admin_profile')->name('admin_profile');
@@ -122,3 +122,11 @@ Route::get('/notifications', function () {
 Route::get('/chats', function () {
     return view('pages/chat');
 });
+
+// Route::get('/hosting',function(){
+// return view('researcher.signup');
+// });
+
+
+Route::get('login/google', [App\Http\Controllers\LoginController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('login/google/callback', [App\Http\Controllers\LoginController::class, 'handleGoogleCallback']);

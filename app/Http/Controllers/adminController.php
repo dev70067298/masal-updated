@@ -25,7 +25,7 @@ class adminController extends Controller
     }
     public function index()
     {
-        return view('admin.index');
+        return view('superadmin.login');
     }
 
     //Admin Dashboard
@@ -48,11 +48,11 @@ class adminController extends Controller
          ->select('comments.comment','users.user')
          ->get();
          $chat_users=User::whereIn('userRole',[2,3])->orderBy('id','desc')->get();
-         return view('admin.dashboard')->with(array('chat_users'=>$chat_users,'comment'=>$comment,'researcher'=>$researcher,'buyer'=>$buyer));
+         return view('superadmin.index')->with(array('chat_users'=>$chat_users,'comment'=>$comment,'researcher'=>$researcher,'buyer'=>$buyer));
     }
 
     //Researcher List
-    public function researcher_list()
+    public function host_list()
     {
         if (Auth::check()) {
             if($this->user->userRole != 1)
@@ -65,10 +65,11 @@ class adminController extends Controller
              return redirect('/admin');
          }
          $researcher=User::where('userRole',3)->whereIn('status',[1,2,3])->orderBy('id', 'desc')->get();
-         $request=User::where('userRole',3)->where('status',0)->count();
+         $request1=User::where('userRole',3)->where('status',0)->count();
+         $request=User::where('userRole',3)->where('status',0)->orderBy('id','desc')->get();
          $chat_users=User::whereIn('userRole',[2,3])->orderBy('id','desc')->get();
 
-        return view('admin.researcher')->with(array('chat_users'=>$chat_users,'researcher'=>$researcher,'request'=>$request));
+        return view('superadmin.host')->with(array('chat_users'=>$chat_users,'researcher'=>$researcher,'request1'=>$request1,'request'=>$request));
     }
 
 
@@ -194,10 +195,10 @@ class adminController extends Controller
              $user->save();
              if($user->save())
              {
-                 return redirect()->back()->with('success','Seller Account Suspended');
+                 return redirect()->back()->with('success','Host Account Suspended');
              }
              else{
-                return redirect()->back()->with('error','Seller Account not Suspended');
+                return redirect()->back()->with('error','Host Account not Suspended');
 
              }
         }
@@ -218,7 +219,7 @@ class adminController extends Controller
               }
               $user=User::find($id);
               $user->delete();
-              return redirect()->back()->with('success','Seller Account Deleted');
+              return redirect()->back()->with('success','Host Account Deleted');
          }
    
 
@@ -241,10 +242,10 @@ class adminController extends Controller
              $user->save();
              if($user->save())
              {
-                 return redirect()->back()->with('success','Seller Account Accepted');
+                 return redirect()->back()->with('success','Host Account Accepted');
              }
              else{
-                return redirect()->back()->with('error','Seller Account not Accepted');
+                return redirect()->back()->with('error','Host Account not Accepted');
 
              }
         }
@@ -267,10 +268,10 @@ class adminController extends Controller
               $user->save();
               if($user->save())
               {
-                  return redirect()->back()->with('success','Seller Account Rejected');
+                  return redirect()->back()->with('success','Host Account Rejected');
               }
               else{
-                 return redirect()->back()->with('error','Seller Account not Rejected');
+                 return redirect()->back()->with('error','Host Account not Rejected');
  
               }
          }
@@ -414,11 +415,11 @@ class adminController extends Controller
                 $user->save();
                 if($user->save())
                 {
-                    return redirect()->back()->with('success','Seller Account Updated');
+                    return redirect()->back()->with('success','Host Account Updated');
                 }
                 else
                 {
-                    return redirect()->back()->with('error','Seller Account Not Updated');
+                    return redirect()->back()->with('error','Host Account Not Updated');
                 }
                }
           }

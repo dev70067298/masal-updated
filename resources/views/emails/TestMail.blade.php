@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Auction Master</title>
+    <title>Awesome Travellers</title>
 </head>
 <body>
     <h1>{{$details['title']}}</h1>
@@ -17,7 +17,7 @@
     <p><b>Bid End Time: </b>{{$details['end']}}</p>
     <p><a href="{{route('Biddingpage')}}"><button style="background-color:#9F0B41;color:white">Bidd Now</button></a></p>
     <hr>
-    <h6>By Auction Master</h6>
+    <h6>By Awesome Travellers</h6>
     <hr>
   </div>
 </body>

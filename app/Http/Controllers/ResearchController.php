@@ -254,7 +254,7 @@ class ResearchController extends Controller
                 $bid->save();
                 $pro=service::find($request->product_id);
                 $details=[
-                    'title'=>'New Bidd Add on Auction Master',
+                    'title'=>'New Bidd Add on Awesome Travellers',
                     'name'=>$pro->product_name,
                     'image'=>$pro->file,
                     'price'=>$pro->price,

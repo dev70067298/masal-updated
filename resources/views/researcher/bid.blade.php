@@ -8,7 +8,7 @@
   <div class="row">
     <div class="col-md-4 col-lg-4 col-sm-3 col-xs-3"></div>
     <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
-        <h3 class="h3">Products</h3>
+        <h3 class="h3">Host</h3>
     </div>
     <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1">
         <label class="switch">
@@ -17,7 +17,7 @@
           </label>
     </div>
     <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
-        <h3 class="h3">Bids</h3>
+        <h3 class="h3">Funding</h3>
     </div>
 </div>
 
@@ -39,7 +39,7 @@
     <table class="table table-borderless table-hover table-md table-lg mt-5">
        <thead>
             <tr>
-                <th class="text-center">Product Name</th>
+                <th class="text-center">Host Name</th>
                 <th class="text-center">Image</th>
                 <th class="text-center">Added</th>
                 <th class="text-center">Action</th>
@@ -63,7 +63,7 @@
           </td>
            <td class="text-center" scope="row">{{$row->created_at}}</td>
            <td class="text-center" scope="row">
-               <a href="#" data-toggle="modal" data-target="#new" value="{{$row->id}}" id="{{$row->product_name}}" class="btn btn-primary poper"> Start Bid </a>
+               <a href="#" data-toggle="modal" data-target="#new" value="{{$row->id}}" id="{{$row->product_name}}" class="btn btn-primary poper"> Start Funding </a>
               </td>
           </tr>
           @endif
@@ -82,7 +82,7 @@
     <table class="table table-borderless table-hover table-md table-lg mt-5">
        <thead>
             <tr>
-                <th class="text-center">Product Name</th>
+                <th class="text-center">Host Name</th>
                 <th class="text-center">Image</th>
                 <th class="text-center">Date</th>
                 <th class="text-center">Start Time</th>
@@ -131,7 +131,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Start Bid on <span id='placer'></span></h5>
+          <h5 class="modal-title" id="exampleModalLabel">Start Funding on <span id='placer'></span></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

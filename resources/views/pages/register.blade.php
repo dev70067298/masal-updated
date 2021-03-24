@@ -1,8 +1,8 @@
-@extends('layout.page')
+@include('layout.page')
 
 @section('content')
 
-<h1 class="text-center text-white mt-5"> Welcome to Auction Master </h1>
+<h1 class="text-center text-white mt-5"> Welcome to Awesome Travellers </h1>
 
 <div class="container">
   @if(Session::has('success'))

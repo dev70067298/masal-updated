@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Auction Master</title>
+    <title>Awesome Travellers</title>
 </head>
 <body>
     <h1>{{$detail['title']}}</h1>
@@ -19,7 +19,7 @@
     <p><b>Bid Start Time: </b>{{$detail['start']}}</p>
     <p><b>Bid End Time: </b>{{$detail['end']}}</p>
     <hr>
-    <h6>By Auction Master</h6>
+    <h6>By Awesome Travellers</h6>
     <hr>
   </div>
 </body>

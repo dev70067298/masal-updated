@@ -65,7 +65,7 @@ $value=\App\cart::where('userid',$buyer)->orderBy('id','desc')->count();
             </a>
             <br clear="all">
         <a href="{{route('buyer_researcher')}}" class="side-link">  <h5 style="font-weight: normal" class="text-white text-center nav-side">
-                <img src="{{asset('img/icon/jobs.PNG')}}" width="30" height="30"> Sellers </h5>
+                <img src="{{asset('img/icon/jobs.PNG')}}" width="30" height="30">Hosts </h5>
             </a>
             <br clear="all">
 

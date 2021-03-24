@@ -42,13 +42,10 @@
                 <img src="{{asset('img/icon/dashboard.PNG')}}" width="30" height="30" > Dashboard </h5>
             </a>
             <br clear="all">
-        <a href="{{route('researcher_list')}}" class="side-link">  <h5 style="font-weight: normal" class="text-white text-center nav-side"> 
-                <img src="{{asset('img/icon/research.PNG')}}" width="30" height="30"> Sellers </h5>
+        <a href="{{route('host_list')}}" class="side-link">  <h5 style="font-weight: normal" class="text-white text-center nav-side"> 
+                <img src="{{asset('img/icon/research.PNG')}}" width="30" height="30">Hosts </h5>
             </a>
-            <br clear="all">
-            <a href="{{route('buyer_list')}}" class="side-link">  <h5 style="font-weight: normal" class="text-white text-center nav-side"> 
-                <img src="{{asset('img/icon/buyer.PNG')}}" width="30" height="30"> Buyers</h5>
-            </a>
+            
             <br clear="all">
         <a href="{{route('admin_profile')}}" class="side-link">  <h5 style="font-weight: normal" class="text-white text-center nav-side"> 
                 <img src="{{asset('img/icon/profile.PNG')}}" width="30" height="30"> Profile </h5>
@@ -113,7 +110,7 @@
             @if($user->userRole == 2)
                 Buyer
             @else
-            Seller
+           Host
             @endif
         </div>  
         </div>

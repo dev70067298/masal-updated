@@ -4,16 +4,16 @@
 <div class="bg-white boxer container mt-3">
     <div class="row">
         <div class="col-8">
-    <h3 class="h3">New Seller Request</h3>
+    <h3 class="h3">New Host Request</h3>
     <h5 class="h5">Total Requests: {{$request}}</h5>
         </div>
         <div class="col-4">
-        <a href="{{route('researcher_request')}}" class="btn-theme mt-4">New Seller</a>
+        <a href="{{route('researcher_request')}}" class="btn-theme mt-4">New Host</a>
         </div>
     </div>
 </div>
 <div class="bg-white boxer container mt-3">
-    <h3 class="h3">Seller List</h3>
+    <h3 class="h3">Host List</h3>
     <center><div>
     @if(Session::has('success'))
     <p class="col-lg-4 col-md-4 col-sm-4 col-xs-4 alert {{ Session::get('alert-class', 'alert-success') }}">

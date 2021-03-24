@@ -30,5 +30,5 @@ class ConMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Bid Winning Mail from Auction Master')->view('emails.ConMail');    }
+        return $this->subject('Bid Winning Mail from Awesome Travellers')->view('emails.ConMail');    }
 }

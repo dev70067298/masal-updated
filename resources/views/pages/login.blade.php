@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1 class="text-center text-white mt-5"> Welcome to Auction Master </h1>
+<h1 class="text-center text-white mt-5"> Welcome to Awesome Travellers </h1>
 
 <div class="container">
 
@@ -34,7 +34,11 @@
                     <center>
                   <input type="submit" name="submit" value="Login" class="btn-theme">
                 </center>
-
+                <a href="{{ route('login.google') }}">
+                    <button type="button" class="btn btn-block btn-google">
+                        <i class="f"></i>login with Google
+                    </button>
+                </a>
             <p class="text-dark text-center mt-2 mb-2"> If New User then/<a href="{{route('register')}}" class="btn">Register</a> </p>
             </form>
         </div>

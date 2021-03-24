@@ -104,21 +104,13 @@ input:checked + .slider:before {
             <a href="{{route('reseacherdash')}}" class="side-link">  <h5 style="font-weight: normal" class="text-white text-center nav-side"> 
                 <img src="{{asset('img/icon/dashboard.PNG')}}" width="30" height="30" > Dashboard </h5>
             </a>
-            <br clear="all">
-        <a href="{{route('research_service')}}" class="side-link">  <h5 style="font-weight: normal" class="text-white text-center nav-side"> 
-                <img src="{{asset('img/icon/jobs.PNG')}}" width="30" height="30"> Products </h5>
-            </a>
+            
             <br clear="all">
 
             <a href="{{route('bid_product')}}" class="side-link">  <h5 style="font-weight: normal" class="text-white text-center nav-side"> 
-                <img src="{{asset('img/icon/jobs.PNG')}}" width="30" height="30"> Bidding </h5>
+                <img src="{{asset('img/icon/jobs.PNG')}}" width="30" height="30"> Funding </h5>
             </a>
-            <br clear="all">
-
-          
-        <a href="#" class="side-link">  <h5 style="font-weight: normal" class="text-white text-center nav-side"> 
-                <img src="{{asset('img/icon/research.PNG')}}" width="30" height="30"> Orders </h5>
-            </a>
+            
             <br clear="all">
            
         <a href="{{route('researcher_profile')}}" class="side-link">  <h5 style="font-weight: normal" class="text-white text-center nav-side"> 

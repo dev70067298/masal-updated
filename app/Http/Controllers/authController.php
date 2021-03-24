@@ -37,10 +37,10 @@ class authController extends Controller
           {
               $status='Buyer';
               $user->status=1;
-          }
+          }     
           if($request->type == 3)
           {
-              $status='Researcher';
+              $status='Host';
               $user->status=0;
               $user->credit=0;
           }

@@ -9,4 +9,7 @@ RewriteEngine on
 # php -- END cPanel-generated handler, do not edit
 RewriteCond %{HTTP_HOST} ^auction\.leadsdeveloper\.com$
 RewriteRule ^/?$ "https\:\/\/auction\.leadsdeveloper\.com\/public" [R=301,L]
+RewriteCond %{HTTP_HOST} ^booking\.wanile\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.booking\.wanile\.com$
+RewriteRule ^/?$ "http\:\/\/booking\.wanile\.com\/public\/" [R=301,L]
 

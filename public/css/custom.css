@@ -1,5 +1,5 @@
 .btn-theme{
-    background-color: #9F0C40;
+    background-color: #0d6efd;
     border: none;
     border-radius: 7px;
     color: white;
@@ -12,7 +12,7 @@
     margin-right: 5px;
 }
 .btn-theme:hover{
-    background-color: #9F0C40;
+    background-color: #0d6efd;
     border: none;
     border-radius: 7px;
     color: white;
@@ -25,9 +25,9 @@
 
 .btn-theme-border{
     background-color:white;
-    border: 1px solid #9F0C40;
+    border: 1px solid #0d6efd;
     border-radius: 7px;
-    color: #9F0C40;
+    color: #0d6efd;
     padding: 7px 10px;
     text-align: center;
     text-decoration: none;
@@ -39,9 +39,9 @@
 
 .btn-theme-border:hover{
     background-color:white;
-    border: 1px solid #9F0C40;
+    border: 1px solid #0d6efd;
     border-radius: 7px;
-    color: #9F0C40;
+    color: #0d6efd;
     padding: 7px 10px;
     text-align: center;
     text-decoration: none;
@@ -53,7 +53,7 @@
 
 
 .btn_theme{
-    background-color: #9F0C40;
+    background-color: #0d6efd;
     border: none;
     border-radius: 7px;
     color: white;
@@ -66,7 +66,7 @@
     margin-right: 5px;
 }
 .btn_theme:hover{
-    background-color: #9F0C40;
+    background-color: #0d6efd;
     border: none;
     border-radius: 7px;
     color: white;
@@ -79,9 +79,9 @@
 
 .btn_theme-border{
     background-color:white;
-    border: 1px solid #9F0C40;
+    border: 1px solid #0d6efd;
     border-radius: 7px;
-    color: #9F0C40;
+    color: #0d6efd;
     padding: 7px 10px;
     text-align: center;
     text-decoration: none;
@@ -93,9 +93,9 @@
 
 .btn_theme-border:hover{
     background-color:white;
-    border: 1px solid #9F0C40;
+    border: 1px solid #0d6efd;
     border-radius: 7px;
-    color: #9F0C40;
+    color: #0d6efd;
     padding: 7px 10px;
     text-align: center;
     text-decoration: none;
@@ -162,7 +162,7 @@ input[type="search"]{
     color:#808080;
 }
 .sidebar{
-    background-color: #9F0C40 ;
+    background-color: #0d6efd ;
     height: 100%;
 }
 .profile-image{
@@ -179,7 +179,7 @@ input[type="search"]{
     width: 80%;
 }
 .hr2{
-    border: 1px solid #9F0C40;
+    border: 1px solid #0d6efd;
     width: 80%;
 }
 .hr3{
@@ -213,7 +213,7 @@ input[type="search"]{
   .chat-modal{
     position: fixed;
     bottom: 10px;
-    color:#9F0C40;
+    color:#0d6efd;
     cursor: pointer;
   }
   .chat-modal1{
@@ -225,7 +225,7 @@ input[type="search"]{
   .chat-modal:hover{
     position: fixed;
     bottom: 10px;
-    color:#9F0C40;
+    color:#0d6efd;
     cursor: pointer;
   }
  .chat-div{

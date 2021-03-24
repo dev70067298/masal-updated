@@ -30,6 +30,6 @@ public $detail1;
      */
     public function build()
     {
-        return $this->subject('Mail from Auction Master')->view('emails.SendMail');
+        return $this->subject('Mail from Awesome Travellers')->view('emails.SendMail');
     }
 }
