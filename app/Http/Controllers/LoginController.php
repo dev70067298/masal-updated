@@ -66,29 +66,29 @@ class LoginController extends Controller
             $user->user = $data->email;
             $user->provider_id = $data->id;
             $user->avatar = $data->avatar;
-            $user->status = 0;
+            $user->status = 5;
             $user->userRole = 3;
 
             $user->save();
         }
 else{
 //    die($user);
-    if($user->status == 0)
-    {
-        return redirect('login')->with('error', 'Your Account is under review');
-    }
-    else if($user->status == 2)
-    {
-        return redirect('login')->with('error', 'Your Account Rejected');
-    }
-    else if($user->status == 3)
-    {
-        return redirect('login')->with('error', 'Your Account Deleted');
-    }
-    else if($user->status == 1){
+    // if($user->status == 0)
+    // {
+    //     return redirect('login')->with('error', 'Your Account is under review');
+    // }
+    // else if($user->status == 2)
+    // {
+    //     return redirect('login')->with('error', 'Your Account Rejected');
+    // }
+    // else if($user->status == 3)
+    // {
+    //     return redirect('login')->with('error', 'Your Account Deleted');
+    // }
+    // else if($user->status == 1){
         Auth::login($user);
         return redirect('reseacherdash');
-    }
+//    }
 
 }
     }

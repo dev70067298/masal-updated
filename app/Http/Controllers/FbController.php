@@ -7,9 +7,9 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Validator;
-use Socialite;
 use Exception;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 
 class FbController extends Controller
 {
@@ -22,10 +22,10 @@ class FbController extends Controller
     public function facebookSignin()
     {
         try {
-    
+
             $user = Socialite::driver('facebook')->user();
             $facebookId = User::where('facebook_id', $user->id)->first();
-     
+
             if($facebookId){
                 Auth::login($facebookId);
                 return redirect('/dashboard');
@@ -40,11 +40,11 @@ class FbController extends Controller
                     'password' => encrypt('john123'),
 
                 ]);
-    
+
                 Auth::login($createUser);
                 return redirect('reseacherdash');
             }
-    
+
         } catch (Exception $exception) {
             dd($exception->getMessage());
         }

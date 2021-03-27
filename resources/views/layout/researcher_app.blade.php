@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <link rel="stylesheet" href="{{asset('css/custom.css')}}">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> --}}
@@ -12,7 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-<script src="https://use.fontawesome.com/119f1a8072.js"></script>  
+<script src="https://use.fontawesome.com/119f1a8072.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>Seller Panel</title>
 
@@ -28,7 +28,7 @@
   height: 34px;
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -99,36 +99,41 @@ input:checked + .slider:before {
                 <img src="{{asset('img/boy.png')}}" alt="" class="profile-image mx-auto d-block img-fluid">
                 @endif
             <h4 class="text-white text-center">{{ $user->name }}</h4>
-            <h5 class="text-white text-center"> Balance: {{$user->credit}} </h5>
-            <hr class="hr">
-            <a href="{{route('reseacherdash')}}" class="side-link">  <h5 style="font-weight: normal" class="text-white text-center nav-side"> 
-                <img src="{{asset('img/icon/dashboard.PNG')}}" width="30" height="30" > Dashboard </h5>
+            &nbsp;&nbsp;<a href="{{route('host_request',array('id'=>$user->id))}}" class="btn btn-success" style="pading">
+                 Accumadation Access
             </a>
-            
+
             <br clear="all">
 
-            <a href="{{route('bid_product')}}" class="side-link">  <h5 style="font-weight: normal" class="text-white text-center nav-side"> 
+            <hr class="hr">
+            <a href="{{route('reseacherdash')}}" class="side-link">  <h5 style="font-weight: normal" class="text-white text-center nav-side">
+                <img src="{{asset('img/icon/dashboard.PNG')}}" width="30" height="30" > Dashboard </h5>
+            </a>
+
+            <br clear="all">
+
+            <a href="{{route('bid_product')}}" class="side-link">  <h5 style="font-weight: normal" class="text-white text-center nav-side">
                 <img src="{{asset('img/icon/jobs.PNG')}}" width="30" height="30"> Funding </h5>
             </a>
-            
+
             <br clear="all">
-           
-        <a href="{{route('researcher_profile')}}" class="side-link">  <h5 style="font-weight: normal" class="text-white text-center nav-side"> 
+
+        <a href="{{route('researcher_profile')}}" class="side-link">  <h5 style="font-weight: normal" class="text-white text-center nav-side">
                 <img src="{{asset('img/icon/profile.PNG')}}" width="30" height="30"> Profile </h5>
             </a>
             <br clear="all">
-            <a href="#" class="side-link">  <h5 style="font-weight: normal" class="text-white text-center nav-side"> 
+            <a href="#" class="side-link">  <h5 style="font-weight: normal" class="text-white text-center nav-side">
                 <img src="{{asset('img/icon/payment.PNG')}}" width="30" height="30"> Payment </h5>
             </a>
             <br clear="all">
-     
-            
-            <a href="{{route('user_logout')}}" class="side-link">  <h5 style="font-weight: normal" class="text-white text-center nav-side"> 
+
+
+            <a href="{{route('user_logout')}}" class="side-link">  <h5 style="font-weight: normal" class="text-white text-center nav-side">
                 <img src="{{asset('img/icon/setting.PNG')}}" width="30" height="30"> Logout </h5>
             </a>
-           
+
             <br clear="all">
-           
+
             <div class="modal fade" id="setting" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -141,7 +146,7 @@ input:checked + .slider:before {
                     <div class="modal-body">
                     <a href="{{route('user_logout')}}" class="btn-theme mx-auto">Logout</a>
                     </div>
-                   
+
                   </div>
                 </div>
               </div>
@@ -163,14 +168,14 @@ input:checked + .slider:before {
         </a>
             <i class="fa fa-times offset-lg-4 offset-md-4 offset-xs-4 offset-sm-4 text-white chat-modal1 pt-2" aria-hidden="true" ></i>
         </div>
-      
+
     <hr class="hro">
-           
+
         <div class="row p-2">
-            <h6 class="text-left text-white">Buyers</h6> 
+            <h6 class="text-left text-white">Buyers</h6>
         </div>
-       
-        
+
+
         <input id="myInput" class="form-control mb-3" type="text" placeholder="Search For Names">
           @foreach ($chat_users as $user)
         <ul id="chat_ul">
@@ -205,7 +210,7 @@ input:checked + .slider:before {
     {
         $('#all_users').slideToggle(800);
     });
-    
+
 
 
 </script>

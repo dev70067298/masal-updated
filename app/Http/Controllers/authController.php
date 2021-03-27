@@ -37,11 +37,11 @@ class authController extends Controller
           {
               $status='Buyer';
               $user->status=1;
-          }     
+          }
           if($request->type == 3)
           {
               $status='Host';
-              $user->status=0;
+              $user->status=5;
               $user->credit=0;
           }
 
@@ -74,31 +74,31 @@ class authController extends Controller
 
          if (Auth::attempt($credentials)) {
              $user = Auth::user();
-             if($user->status == 1 && $user->userRole == 1)
-             {
+            //  if($user->status == 1 && $user->userRole == 1)
+            //  {
                  return redirect('/dashboard');
-             }
-            else
-             {
-                 Auth::logout();
-                 if($user->userRole != 1)
-                 {
-                     return redirect()->back()->with('error', 'Wrong Credantials');
-                 }
+            //  }
+            // else
+            //  {
+            //      Auth::logout();
+            //      if($user->userRole != 1)
+            //      {
+            //          return redirect()->back()->with('error', 'Wrong Credantials');
+            //      }
 
-                 if($user->status == 0)
-                 {
-                     return redirect()->back()->with('error', 'Your Account is under review');
-                 }
-                 else if($user->status == 2)
-                 {
-                     return redirect()->back()->with('error', 'Your Account Rejected');
-                 }
-                 else if($user->status == 3)
-                 {
-                     return redirect()->back()->with('error', 'Your Account Deleted');
-                 }
-             }
+            //      if($user->status == 0)
+            //      {
+            //          return redirect()->back()->with('error', 'Your Account is under review');
+            //      }
+            //      else if($user->status == 2)
+            //      {
+            //          return redirect()->back()->with('error', 'Your Account Rejected');
+            //      }
+            //      else if($user->status == 3)
+            //      {
+            //          return redirect()->back()->with('error', 'Your Account Deleted');
+            //      }
+            //  }
          }
          else
          {
@@ -144,31 +144,31 @@ class authController extends Controller
 
                  if (Auth::attempt($credentials)) {
                      $user = Auth::user();
-                     if($user->status == 1 && $user->userRole == 3)
-                     {
+                    //  if($user->status == 1 && $user->userRole == 3)
+                    //  {
                          return redirect('/reseacherdash');
-                     }
-                    else
-                     {
-                         Auth::logout();
-                         if($user->userRole != 3)
-                         {
-                             return redirect()->back()->with('error', 'Wrong Credantials');
-                         }
+                    //  }
+                    // else
+                    //  {
+                    //      Auth::logout();
+                    //      if($user->userRole != 3)
+                    //      {
+                    //          return redirect()->back()->with('error', 'Wrong Credantials');
+                    //      }
 
-                         if($user->status == 0)
-                         {
-                             return redirect()->back()->with('error', 'Your Account is under review');
-                         }
-                         else if($user->status == 2)
-                         {
-                             return redirect()->back()->with('error', 'Your Account Rejected');
-                         }
-                         else if($user->status == 3)
-                         {
-                             return redirect()->back()->with('error', 'Your Account Deleted');
-                         }
-                     }
+                    //      if($user->status == 0)
+                    //      {
+                    //          return redirect()->back()->with('error', 'Your Account is under review');
+                    //      }
+                    //      else if($user->status == 2)
+                    //      {
+                    //          return redirect()->back()->with('error', 'Your Account Rejected');
+                    //      }
+                    //      else if($user->status == 3)
+                    //      {
+                    //          return redirect()->back()->with('error', 'Your Account Deleted');
+                    //      }
+                    //  }
                  }
                  else
                  {

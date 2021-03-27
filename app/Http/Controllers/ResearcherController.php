@@ -124,7 +124,30 @@ class ResearcherController extends Controller
              }
             }
      }
+     public function host_request($id)
+     {
+        if (Auth::check()) {
+            if($this->user->userRole != 3)
+            {
+             return redirect('/login');
+            }
+         }
+         else
+         {
+             return redirect('/login');
+         }
+          $user=User::find($id);
+          $user->status=0;
+          $user->save();
+          if($user->save())
+          {
+              return redirect()->back()->with('success','Your Request is under review');
+          }
+          else{
+             return redirect()->back()->with('error','Issue');
 
+          }
+     }
 
       //Researcher Service Page
       public function research_service()
@@ -167,7 +190,7 @@ class ResearcherController extends Controller
           if(isset($request->submit) && $request->submit=='Submit')
             {
                 $this->validate($request,[
-                 'product'=>'required',   
+                 'product'=>'required',
                  'price'=>'required|numeric',
                  'description'=>'required'
                 ]);

@@ -176,7 +176,7 @@ class adminController extends Controller
               return redirect()->back()->with('success','Buyer Account Deleted');
          }
 
-         
+
           //Deactivate Researcher
         public function deactive_researcher($id)
         {
@@ -244,7 +244,7 @@ class adminController extends Controller
               $user->delete();
               return redirect()->back()->with('success','Host Account Deleted');
          }
-   
+
 
 
           //Accept Researcher
@@ -295,7 +295,7 @@ class adminController extends Controller
               }
               else{
                  return redirect()->back()->with('error','Host Account not Rejected');
- 
+
               }
          }
 
@@ -474,7 +474,7 @@ class adminController extends Controller
         }
 
         //Update Profile
-        
+
             public function admin_profile_update(Request $request,$id)
         {
             if (Auth::check()) {
@@ -536,7 +536,7 @@ class adminController extends Controller
                 }
                }
         }
-        
+
 
          //Admin Comments Page
          public function admin_comment()
@@ -797,7 +797,7 @@ class adminController extends Controller
                     $package->save();
                     return redirect()->back()->with('success','Package Added Successfully');
                 }
-               
+
            }
 
            //Edit Researcher Page
@@ -861,7 +861,7 @@ class adminController extends Controller
                     $package->save();
                     return redirect()->back()->with('success','Package Update Successfully');
                 }
-               
+
            }
 
 }

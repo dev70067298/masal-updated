@@ -1,5 +1,19 @@
 
     <body class="antialiased">
+        {{-- @if(Session::has('success'))
+<div class="alert alert-success alert-dismissible fade show {{ Session::get('alert-class', 'alert-success') }}" role="alert">
+    {{ Session::get('success') }}
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						</div>
+    @endif
+    @if(Session::has('error'))
+
+        <div class="alert alert-primary alert-dismissible fade show  {{ Session::get('alert-class', 'alert-danger') }}" role="alert">
+		{{ Session::get('error') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						</div>
+    @endif --}}
+
 <nav class="navbar navbar-expand-xl navbar-dark fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
@@ -50,9 +64,16 @@
               href="#"
               data-bs-toggle="modal" data-bs-target="#exampleModal"
               style="color: #0088ff"
-              >Become a host</a
+              >signup</a
             >
           </li>
+          <li class="nav-item">
+
+            <a class="nav-link active"  style="color: #0088ff"
+            aria-current="page" href="{{ url('/login') }}">login</a>
+
+          </li>
+
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#"
               ><img src="./img/world.png" width="30px" alt=""
@@ -72,14 +93,14 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        
+
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
        @include('researcher.signup')
       </div>
       <div class="modal-footer">
-        
+
       </div>
     </div>
   </div>

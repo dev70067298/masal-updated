@@ -63,6 +63,7 @@ Route::post('/add_research','ResearchController@add_research')->name('add_resear
 Route::get('/edit_research/{id}','ResearchController@edit_research')->name('edit_research');
 Route::post('/update_research/{id}','ResearchController@update_research')->name('update_research');
 Route::get('/change_research_status/{id}/{value}','ResearchController@change_research_status')->name('change_research_status');
+Route::get('/host_request/{id}','ResearcherController@host_request')->name('host_request');
 
 //Buyer Routes
 Route::get('/buyerdash','BuyerController@buyerdash')->name('buyerdash');
