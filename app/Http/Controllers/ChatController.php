@@ -1,15 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Validation\Rule;
+
 use Illuminate\Http\Request;
+use App\chatModel;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\masalMail;
 use App\User;
-use App\comments;
-use App\chat;
+use App\emails;
 class ChatController extends Controller
 {
+
     protected $user;
     public function __construct()
     {
@@ -19,203 +21,350 @@ class ChatController extends Controller
             return $next($request);
         });
     }
-
-      //Admin Chat Page
-    public function chat($id)
+    //Retailer Chat Room
+    public function chat()
     {
         if (Auth::check()) {
-            if($this->user->userRole != 1)
+            if($this->user->userRole != 2)
             {
-             return redirect('/admin');
+             return redirect('/');
+            }
+            if($this->user->status != 1)
+            {
+             return redirect('/retailerlogout');
             }
          }
          else
          {
-             return redirect('/admin');
+             return redirect('/');
          }
-         $chats=chat::where('sender',$id)->orWhere('receiver',$id)->get();
-         $chat_users=User::whereIn('userRole',[2,3])->orderBy('id','desc')->get();
-         $user=User::find($id);
-         return view('admin.chat')->with(array('user'=>$user,'chat_users'=>$chat_users,'chats'=>$chats));
-        }
+        $id=Auth::user()->id;
+        $admin=User::where('userRole',1)->first();
+        $chat=chatModel::where('senderId',$id)->orWhere('receiver',$id)->get();
+        $marker=chatModel::where('receiver',$id)->update(['marker'=>0]);
+        return view("retailer.chat")->with(array('admin'=>$admin,'chat'=>$chat));
+    }
 
-         //Send Message From admin side
+    //Retailer Send Message
     public function send_message(Request $request)
     {
+       
         if (Auth::check()) {
-            if($this->user->userRole != 1)
+            if($this->user->userRole != 2)
             {
-             return redirect('/admin');
+             return redirect('/');
+            }
+            if($this->user->status != 1)
+            {
+             return redirect('/retailerlogout');
             }
          }
          else
          {
-             return redirect('/admin');
+             return redirect('/');
          }
-         if(isset($request->submit))
-         {
+        if(!isset($request->attachment)) {
+      $this->validate($request,[
+       'message'=>'required'
+      ]);
+         }
+         if(!isset($request->message)) {
             $this->validate($request,[
-                'receiver'=>'required'
+             'attachment'=>'required'
             ]);
-            if(!isset($request->message) && !isset($request->file))
+               }
+        $id=Auth::user()->id;
+        $admin=User::where('userRole',1)->first();
+        $adminId=$admin->id;
+        $chat=new chatModel;
+        $chat->message=$request->message;
+        if(isset($request->attachment))
+        {
+        $path1 = $request->attachment->store('file');
+        $chat->file=$path1;
+        }
+        $chat->sender='retailer';
+        $chat->senderId=$id;
+        $chat->receiver=$adminId;
+        $chat->marker=1;
+        $chat->save();
+
+            $all_admin=User::where('userRole',1)->get();
+            $welcome=emails::where('name','Retailer_chat')->first();
+            $signature=emails::where('name','Signature')->first();
+            $ender=' ';
+            if($signature->status == 1)
             {
-                $this->validate($request,[
-                    'message'=>'required'
-                ]); 
+            $ender=$signature->message;
             }
-         $message=new chat;
-         $message->message=$request->message;
-         $message->file=null;
-         $message->sender=Auth::user()->id;
-         $message->receiver=$request->receiver;
-         $message->marker=0;
-         $message->save();
-         return redirect()->back();
-        }
-    }
-
-
-    //Researcher Chat Page
-    public function researcher_chat($id)
-    {
-        if (Auth::check()) 
-        {
-            if($this->user->userRole != 3)
+            if($welcome->status == 1)
             {
-             return redirect('/login');
+                foreach($all_admin as $row)
+                {
+                $mail=[
+                    'title'=>$welcome->subject,
+                    'body'=>$welcome->message.'<br>'.$ender
+                ];
+                $subject=$welcome->subject;
+                Mail::to($row->email)->send(new masalMail($mail,$subject));
+                }
             }
-        }
-         else
-        {
-             return redirect('/login');
-        }
-            $researcher=Auth::user();
-            $chats=chat::whereIn('sender',[$id,$researcher->id])->whereIn('receiver',[$id,$researcher->id])->get();
-            $chat_users=User::where('userRole',2)->orderBy('id','desc')->get();
-            $admin=User::where('userRole',1)->first();
-            $user=User::find($id);
-            return view('researcher.researcher_chat')->with(array('admin'=>$admin,'user'=>$user,'chat_users'=>$chat_users,'chats'=>$chats));
-    }
 
-    //Buyer Chat Page
-    public function buyer_chat($id)
-    {
-        if (Auth::check()) 
+
+        return redirect()->back();
+    
+}
+
+
+ //Admin Chat Box
+ public function adminChat()
+ {
+     if (Auth::check()) {
+         if($this->user->userRole != 1)
+         {
+          return redirect('/admin');
+         }
+      }
+      else
+      {
+          return redirect('/admin');
+      }
+      $stokist=User::where([
+        ['userRole', '=', 2],
+        ['status', '=', 1], 
+    ])->get();
+
+    return view('admin.chatRoom')->with('stokist',$stokist);
+
+ }
+
+
+
+  //Admin Individual Chat
+  public function start_chat($retailer)
+  {
+      if (Auth::check()) {
+          if($this->user->userRole != 1)
+          {
+           return redirect('/admin');
+          }
+       }
+       else
+       {
+           return redirect('/admin');
+       }
+      $id=Auth::user()->id;
+      $user=User::find($retailer);
+      $msg=chatModel::whereIn('senderId',[$retailer, $id])->whereIn('receiver', [$retailer, $id])->get();
+      
+      $name=$user->name;
+      $marker=chatModel::where('receiver',$id)->where('senderId',$retailer)->update(['marker'=>0]);
+        $stokist=User::where([
+            ['userRole', '=', 2],
+            ['status', '=', 1], 
+        ])->get();
+      return view("admin.indivChat")->with(array('user'=>$user,'stokist'=>$stokist,'msg'=>$msg,'name'=>$name,'retailer'=>$retailer));
+  }
+
+
+  //Message send to database
+  public function adminSendMessage(Request $request)
+  {
+    if (Auth::check()) {
+        if($this->user->userRole != 1)
         {
-            if($this->user->userRole != 2)
-            {
-             return redirect('/login');
+         return redirect('/admin');
+        }
+     }
+     else
+     {
+         return redirect('/admin');
+     }
+       
+            if(!isset($request->attachment)) {
+            $this->validate($request,[
+            'message'=>'required'
+            ]);
             }
-        }
-         else
+            if(!isset($request->message)) {
+            $this->validate($request,[
+            'attachment'=>'required'
+            ]);
+                     }
+      $id=Auth::user()->id;
+      $chat=new chatModel;
+      $chat->message=$request->message;
+      if(isset($request->attachment))
+      {
+      $path1 = $request->attachment->store('file');
+      $chat->file=$path1;
+      }
+      $chat->sender='admin';
+      $chat->senderId=$id;
+      $chat->receiver=$request->id;
+      $chat->marker=1;
+      $chat->save();
+
+      $retailer=User::find($request->id);
+
+      $welcome=emails::where('name','admin_chat')->first();
+      $signature=emails::where('name','Signature')->first();
+      $ender=' ';
+      if($signature->status == 1)
+      {
+      $ender=$signature->message;
+      }
+      if($welcome->status == 1)
+      {
+          $mail=[
+              'body'=>$welcome->message.'<br>'.$ender
+          ];
+          $subject=$welcome->subject;
+          Mail::to($retailer->email)->send(new masalMail($mail,$subject));
+      }
+      return redirect()->back();
+  
+  
+}
+
+//Delete Me Retailer message
+public function del_me($id)
+{
+    if (Auth::check()) {
+        if($this->user->userRole != 2)
         {
-             return redirect('/login');
+         return redirect('/');
         }
-            $buyer=Auth::user();
-            $chats=chat::whereIn('sender',[$id,$buyer->id])->whereIn('receiver',[$id,$buyer->id])->get();
-            chat::whereIn('sender',[$id,$buyer->id])->whereIn('receiver',[$id,$buyer->id])->update(['marker' => 1]);
-            $chat_users=User::where('userRole',3)->orderBy('id','desc')->get();
-            $admin=User::where('userRole',1)->first();
-            $researcher=User::find($id);
-            return view('buyer.buyer_chat')->with(array('admin'=>$admin,'researcher'=>$researcher,'chat_users'=>$chat_users,'chats'=>$chats));
-    }
-
-    //Blank Chat Page
-    public function chat_page()
-    {
-        if (Auth::check()) 
+        if($this->user->status != 1)
         {
-            if($this->user->userRole != 2)
-            {
-             return redirect('/login');
-            }
+         return redirect('/retailerlogout');
         }
-         else
+     }
+     else
+     {
+         return redirect('/');
+     }
+     $msg=chatModel::find($id);
+     if($msg->status == 0)
+     {
+     $msg->status=1;
+     $msg->save();
+     }
+     else
+     {
+         $msg->delete();
+     }
+    
+         return redirect()->back()->with('success','Your Message Deleted');
+    
+}
+
+
+
+//Delete Me Admin message
+public function del_me_admin($id)
+{
+    if (Auth::check()) {
+        if($this->user->userRole != 1)
         {
-             return redirect('/login');
+         return redirect('/admin');
         }
-            $chat_users=User::where('userRole',3)->orderBy('id','desc')->get();
-            $admin=User::where('userRole',1)->first();
-            return view('buyer.buyer_chat')->with(array('admin'=>$admin,'chat_users'=>$chat_users));
-    }
+     }
+     else
+     {
+         return redirect('/admin');
+     }
+     $msg=chatModel::find($id);
+     if($msg->status == 0)
+     {
+     $msg->status=2;
+     $msg->save();
+     }
+     else
+     {
+         $msg->delete();
+     }
+         return redirect()->back()->with('success','Your Message Deleted');
+    
+}
+
+//Delete message From Retailer
+public function del_every($id)
+{
+     $msg=chatModel::find($id);
+     $msg->delete();
+     return redirect()->back()->with('success','Your Message Deleted');
+     
+}
 
 
-
-    //Send Message From Buyer side
-    public function send_message_buyer(Request $request)
-    {
-       if (Auth::check()) {
-           if($this->user->userRole != 2)
-           {
-            return redirect('/login');
-           }
+//Delete All Chat of Retailer
+public function retailer_chat_del()
+{
+    if (Auth::check()) {
+        if($this->user->userRole != 2)
+        {
+         return redirect('/');
+        }
+        if($this->user->status != 1)
+        {
+         return redirect('/retailerlogout');
+        }
+     }
+     else
+     {
+         return redirect('/');
+     }
+     $user=Auth::user();
+     $id=$user->id;
+     $msg=chatModel::where('senderId',$id)->orWhere('receiver',$id)->get();
+     foreach($msg as $row)
+     {
+        if($row->status == 0)
+        {
+        $row->status=1;
+        $row->save();
         }
         else
         {
-            return redirect('/login');
+            $row->delete();
         }
-         if(isset($request->submit))
-         {
-            $this->validate($request,[
-                'receiver'=>'required'
-            ]);
-            if(!isset($request->message) && !isset($request->file))
-            {
-                $this->validate($request,[
-                    'message'=>'required'
-                ]); 
-            }
-         $message=new chat;
-         $message->message=$request->message;
-         $message->file=null;
-         $message->sender=Auth::user()->id;
-         $message->receiver=$request->receiver;
-         $message->marker=0;
-         $message->save();
-         return redirect()->back();
-        }
-    }
-
-
-
-
-
-
-     //Send Message From Researcher side
-     public function send_message_researcher(Request $request)
-     {
-        if (Auth::check()) {
-            if($this->user->userRole != 3)
-            {
-             return redirect('/login');
-            }
-         }
-         else
-         {
-             return redirect('/login');
-         }
-          if(isset($request->submit))
-          {
-             $this->validate($request,[
-                 'receiver'=>'required'
-             ]);
-             if(!isset($request->message) && !isset($request->file))
-             {
-                 $this->validate($request,[
-                     'message'=>'required'
-                 ]); 
-             }
-          $message=new chat;
-          $message->message=$request->message;
-          $message->file=null;
-          $message->sender=Auth::user()->id;
-          $message->receiver=$request->receiver;
-          $message->marker=0;
-          $message->save();
-          return redirect()->back();
-         }
      }
+     return redirect()->back()->with('success','Your Messages Deleted');
 
+}
+
+
+//Delete All Chat of Admin
+public function del_admin_chat($id)
+{
+    if (Auth::check()) {
+        if($this->user->userRole != 1)
+        {
+         return redirect('/admin');
+        }
+     }
+     else
+     {
+         return redirect('/admin');
+     }
+     $msg=chatModel::where('senderId',$id)->orWhere('receiver',$id)->get();
+     foreach($msg as $row)
+     {
+        if($row->status == 0)
+        {
+        $row->status=2;
+        $row->save();
+        }
+        else
+        {
+            $row->delete();
+        }
+          
+     }
+     return redirect()->back()->with('success','Retailer Chat Deleted');
+
+}
 
 
 }

@@ -175,6 +175,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Shopping Cart Application Service Providers...
+         */
+
+
     ],
 
     /*
@@ -226,7 +231,16 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'PdfReport'=> SamuelTerra22\ReportGenerator\Facades\PdfReportFacade::class,
+        'providers' => [
+            // ...
+            niklasravnsborg\LaravelPdf\PdfServiceProvider::class
+        ],
+        'aliases' => [
+            // ...
+            'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class
+        ]
+
+        // for cart
 
     ],
 
