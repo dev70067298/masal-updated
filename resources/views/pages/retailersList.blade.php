@@ -36,7 +36,7 @@
     </script>
 
 
-    <title>Masal</title>
+    <title>Search for Merch</title>
     <meta name="description"
         content="Masal  is a designer of award-winning wedding dresses. With emphasis on luxurious fabrics, fabulous fit and exquisite embellishments, browse our collection of wedding gowns and accessories." />
     <meta name="keywords"

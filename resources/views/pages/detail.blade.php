@@ -23,7 +23,7 @@
 <meta name="msapplication-TileColor" content="#760751">
 <meta name="theme-color" content="#760751">
 
-<title>Masal</title>
+<title>Search for Merch</title>
 <meta name="description"
 content="Masal  is a designer of award-winning wedding dresses. With emphasis on luxurious fabrics, fabulous fit and exquisite embellishments, browse our collection of wedding gowns and accessories." />
 <meta name="keywords"
@@ -869,7 +869,7 @@ content="Wedding Dresses, Designer Wedding Dresses, Masal , Modern Romance, Brid
                          <span data-layout-font="">#{{ $item->styleNumber }}</span>
                          </h4>
                          <h5 title="Masal Style #{{ $item->styleNumber }}">
-                         <span data-layout-font="">Masal</span>
+                         <span data-layout-font="">Search for Merch</span>
                          </h5>
                      </div>
                  </div>

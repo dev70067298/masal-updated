@@ -165,7 +165,7 @@
                 <i class="material-icons" aria-hidden="true" style="font-size:23px; color: honeydew; ">pin_drop</i>
                 </i>
                 </div>
-                <h3>Find your dream dress
+                <h3>Find your dream products
                 
                 </h3>
                 </div>

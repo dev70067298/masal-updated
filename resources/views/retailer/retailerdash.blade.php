@@ -21,9 +21,9 @@
               <h5>  @if($star == 0) Welcome @else Congratulations 🎉 @endif{{ Auth::user()->name }}</h5>
               <p class="card-text font-small-3" style="text-align: justify;width: 80%; color:#A6A4B0">
                 @if($star == 0)
-                 When your order reaches the total of 10 quantity, you will get your first bride star which gives you a 3% discount that be applied to your orders automatically on check out.
+                 When your order reaches the total of 10 quantity, you will get your first sfm star which gives you a 3% discount that be applied to your orders automatically on check out.
                 @else
-                You have {{ $star }} Bride Stars and save @if($star == 1) 3% @elseif($star == 2) 5%  @elseif($star == 3) 7% @elseif($star == 4) 10% @else 15%  @endif discount on check out automatically.
+                You have {{ $star }} sfm Stars and save @if($star == 1) 3% @elseif($star == 2) 5%  @elseif($star == 3) 7% @elseif($star == 4) 10% @else 15%  @endif discount on check out automatically.
               </p>
                 <p class="mb-75 mt-2 pt-50" style="text-align: justify;width: 80%">
                   <a href="javascript:void(0);"> You need to achieve 

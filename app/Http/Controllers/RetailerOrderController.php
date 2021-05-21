@@ -123,7 +123,7 @@ class RetailerOrderController extends Controller
                     "amount" => $request->payable,
                     "currency" => "USD",
                     "source" => $request->input('stripeToken'), // obtained with Stripe.js
-                    "description" => "Masal Payment System" 
+                    "description" => "Search for Merch Payment System" 
             ));
             $id=Auth::user()->id;
             $user=User::find($id);
