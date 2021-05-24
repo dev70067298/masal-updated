@@ -9,7 +9,7 @@
 <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
 <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
 <meta name="author" content="PIXINVENT">
-<title>Retailer Masal</title>
+<title>Retailer Search for Merch</title>
 <link rel="apple-touch-icon" href="{{ asset('app-assets/images/ico/apple-icon-120.png') }}">
 <link rel="shortcut icon" type="image/x-icon" href="{{ asset('app-assets/images/ico/favicon.png ')}}">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
@@ -81,7 +81,7 @@
 <div class="search-input-icon"><i class="fa fa-search" aria-hidden="true"></i></div>
 <form action="{{ route('product_search') }}" method="post" class="search_form">
     @csrf
-<input class="form-control input" name="top_search" type="text" placeholder="Explore Masal..." tabindex="-1" data-search="search">
+<input class="form-control input" name="top_search" type="text" placeholder="Explore Search for Merch..." tabindex="-1" data-search="search">
 </form>
 <div class="search-input-close"><i class="fa fa-times" aria-hidden="true"></i></div>
 <ul class="search-list search-list-main"></ul>
@@ -179,7 +179,7 @@
      <span class="brand-logo">
         <img src="{{ asset('app-assets/images/logo/logo.png')}}" > 
 </span> 
-<h2 class="brand-text">Masal</h2>
+<h2 class="brand-text">Search for Merch</h2>
 </a></li>
 <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i><i class="d-none d-xl-block collapse-toggle-icon font-medium-4  text-primary" data-feather="disc" data-ticon="disc"></i></a></li>
 </ul>
@@ -194,8 +194,8 @@
 </li>
 <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('collection') }}"><i class="fa fa-bar-chart" style="color:  #6610F2;"></i><span class="menu-title text-truncate" data-i18n="Chat">Collections</span></a>
 </li>
-<li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('upload_real') }}"><i class="fa fa-upload" style="color:  #6610F2;"></i><span class="menu-title text-truncate" data-i18n="Todo">Masal Weddings</span></a>
-</li>
+<!-- <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('upload_real') }}"><i class="fa fa-upload" style="color:  #6610F2;"></i><span class="menu-title text-truncate" data-i18n="Todo">Masal Weddings</span></a>
+</li> -->
 <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('chat') }}"><i class="fa fa-comments" style="color: #8c4fec;" aria-hidden="true"></i><span class="menu-title text-truncate" data-i18n="Calendar">Chat</span></a>
 </li>
 </ul>

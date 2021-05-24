@@ -240,42 +240,6 @@ content="Wedding Dresses, Designer Wedding Dresses, Masal , Modern Romance, Brid
                                             </li>
                                         @endif
 
-                                        @if ($wed->header_status == 1)
-                                        <li>
-                                            <a href="#" data-trigger="menu-opener">
-                                                <span>Wedding dresses
-                                                </span>
-                                                <i class="sign">
-                                                </i>
-                                            </a>
-                                            <ul class="common-sub-menu">
-                                                <li data-menu-item="empty">
-                                                    <input type="checkbox">
-                                                    <ul>
-                                                        @foreach ($sil as $row)
-                                                        @php 
-                                                        $convert=str_replace(' ','-',$row->name);
-                                                        $convert .="-wedding-dresses";
-                                                         $name=strtolower($convert);
-
-                                                     @endphp
-                                                            <li>
-                                                                <a href="{{ route('sil_collection', ['id' => $name]) }}"
-                                                                    class="menu_item_smaller_font">
-                                                                    <span>
-                                                                        {{ $row->name }}
-                                                                    </span>
-                                                                    <i class="sign">
-                                                                    </i>
-                                                                </a>
-                                                            </li>
-                                                        @endforeach
-
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    @endif
                                         
                                         @if ($coll->header_status == 1)
                                             <li>
@@ -324,16 +288,6 @@ content="Wedding Dresses, Designer Wedding Dresses, Masal , Modern Romance, Brid
                                             </li>
                                         @endif
     
-                                        @if ($wedding->header_status == 1)
-                                            <li>
-                                                <a href="{{ asset('real') }}">
-                                                    <span> MASAL WEDDINGS
-                                                    </span>
-                                                    <i class="sign">
-                                                    </i>
-                                                </a>
-                                            </li>
-                                        @endif
                                         @if ($register->header_status == 1)
                                             <li>
                                                 <a href="{{ route('retailerrequest') }}" data-property="find-store">
@@ -1021,12 +975,7 @@ content="Wedding Dresses, Designer Wedding Dresses, Masal , Modern Romance, Brid
                                             </a>
                                         </li>
                                     @endif
-                                    @if ($wedding1->footer_status == 1)
-                                        <li>
-                                            <a href="{{ route('real') }}">Masal Weddings
-                                            </a>
-                                        </li>
-                                    @endif
+
                                     @if ($register1->footer_status == 1)
                                         <li>
                                             <a href="{{ route('retailerrequest') }}">Register

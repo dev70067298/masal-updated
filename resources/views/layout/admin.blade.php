@@ -9,7 +9,7 @@
 <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
 <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
 <meta name="author" content="PIXINVENT">
-<title>Masal Australia</title>
+<title>Search for Merch</title>
 <link rel="apple-touch-icon" href="{{ asset('app-assets/images/ico/apple-icon-120.png') }}">
 <link rel="shortcut icon" type="image/x-icon" href="{{ asset('app-assets/images/ico/favicon.png ')}}">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
@@ -79,7 +79,7 @@
 <div class="search-input-icon"><i class="fa fa-search" aria-hidden="true"></i></div>
 <form action="{{ route('admin_searcher') }}" method="post" class="search_form">
     @csrf
-<input class="form-control input" name="data" type="text" placeholder="Explore Masal..." tabindex="-1" data-search="search">
+<input class="form-control input" name="data" type="text" placeholder="Explore Search for Merch..." tabindex="-1" data-search="search">
 </form>
 <div class="search-input-close"><i class="fa fa-times" aria-hidden="true"></i></div>
 </div>
