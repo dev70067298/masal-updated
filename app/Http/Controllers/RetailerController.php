@@ -15,6 +15,7 @@ use App\Category;
 use App\wedding;
 use App\retailer_bride;
 use Carbon\Carbon;
+use DB;
 class RetailerController extends Controller
 {
 
@@ -914,4 +915,39 @@ class RetailerController extends Controller
           
        }
 
+       public function applogin(Request $request)
+    {
+        $email=$request->username;
+        $cpassword=$request->password;
+
+        $checkemail=DB::select('select * from users where email = ?', [$email]);
+     if($checkemail){
+        // return  response()->json([
+        //     "password"=>$checkemail[0]->password
+        // ],200);
+        if(Hash::check($cpassword,$checkemail[0]->password)) {
+
+                        return response()->json([
+                            "status"=>200,
+                            "message"=>"login successfully",
+                            "userdetail"=>$checkemail
+                        
+                        ], 200);
+
+                    }else{
+                        return response()->json([
+                            "status"=>400,
+                            "message"=>"wrong password",
+                            "password"=>$cpassword
+                        ], 400);
+                    }
+        }
+        else{
+            return response()->json([
+                "status"=>400,
+                "message"=>"user not exist"
+            ], 400);
+        }
+
+    } 
 }

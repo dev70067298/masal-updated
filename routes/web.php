@@ -306,3 +306,8 @@ Route::post('/wedding_send', 'RetailerController@wedding_send')->name('wedding_s
 Route::post('/wedding_edit', 'RetailerController@wedding_edit')->name('wedding_edit');
 Route::post('/logo', 'RetailerController@logo')->name('logo');
 Route::post('/info_update', 'CrmController@info_update')->name('info_update');
+
+
+//app apis routes
+
+Route::get('/applogin', 'RetailerController@applogin');

@@ -163,7 +163,7 @@
                 </a>
               </div>
 
-              <div class="col-md-3">
+              <!-- <div class="col-md-3">
                 <a href="{{ route('go_cat',array('id'=>$id[3])) }}">
                 <div class="card mb-2">
                   <img class="card-img-top" style="height:350px;" src="{{ asset('images/'.$image[3]) }}">
@@ -174,7 +174,7 @@
                       </div>
                 </div>
                 </a>
-              </div>
+              </div> -->
             </div>
   
           </div>

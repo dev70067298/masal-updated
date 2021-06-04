@@ -29,45 +29,6 @@
                     </a>
             </div>
     
-            <div  class="col-md-2" style="margin-bottom: 10px;">
-                <form action="" method="GET">
-                    <select  name="color" class="form-control" id="color">
-                        <option selected disabled>Select Color</option>
-                        @foreach ($product as $row)
-                                    @php
-                                    $colors = json_decode($row->colour);
-                                    @endphp
-                                    @endforeach
-                                    @foreach($colors as $colo)
-                        
-                        <option value="{{$row->colour}}"> {{$colo}} </option>
-                        @endforeach
-                    </select>
-                </form>
-            </div>
-    
-            <div class=" col-md-2" style="margin-bottom: 10px;">
-                <form action="" method="GET">
-                    <select name="size" class="form-control" id="size">
-                        <option selected disabled>Select Size</option>
-                        @foreach ($size as $sizes)
-                        <option value="{{$sizes->size}}"> {{$sizes->size}} </option>
-                        @endforeach
-                    </select>
-                </form>
-            </div>
-    
-            <div  class=" col-md-2" style="margin-bottom: 10px;">
-                <form action="" method="GET">
-                    <select name="style" class="form-control" id="style">
-                        <option selected disabled>Select Style</option>
-                        @foreach($product as $row)
-                        <option value="{{$row->styleNumber}}"> {{$row->styleNumber}} </option>
-                        @endforeach
-                    </select>
-                </form>
-            </div>
-    
             <div  class=" col-md-2" style="margin-bottom: 10px;">
                 <form action="" method="GET">
                     <select name="category" class="form-control" id="category">

@@ -276,12 +276,12 @@ $note=$chat + $newUser + $unread + $calcle;
     <li><a class="d-flex align-items-center" href="{{route('sale_tag')}}"><i class="fa fa-circle-thin" style="color: #8c4fec;" aria-hidden="true"></i><span class="menu-item" data-i18n="Checkout">Sales Tag</span></a>
     </li>
     <li><a class="d-flex align-items-center" href="{{route('swatches')}}"><i class="fa fa-circle-thin" style="color: #8c4fec;" aria-hidden="true"></i>
-        <span class="menu-item" data-i18n="Wish List">Manage Swatches</span></a>
+        <span class="menu-item" data-i18n="Wish List">Manage Colors</span></a>
     </li>
     <li><a class="d-flex align-items-center" href="{{route('manageCategory')}}"><i class="fa fa-circle-thin" style="color: #8c4fec;" aria-hidden="true"></i>
         <span class="menu-item" data-i18n="Wish List">Manage Category </span></a>
     </li>
-    <li><a class="d-flex align-items-center" href="{{route('manageSilhouette')}}"><i class="fa fa-circle-thin" style="color: #8c4fec;" aria-hidden="true"></i>
+    <!-- <li><a class="d-flex align-items-center" href="{{route('manageSilhouette')}}"><i class="fa fa-circle-thin" style="color: #8c4fec;" aria-hidden="true"></i>
         <span class="menu-item" data-i18n="Wish List">Manage silhouette</span></a>
     </li>
     <li><a class="d-flex align-items-center" href="{{route('manageNeckline')}}"><i class="fa fa-circle-thin" style="color: #8c4fec;" aria-hidden="true"></i>
@@ -292,7 +292,7 @@ $note=$chat + $newUser + $unread + $calcle;
     </li>
     <li><a class="d-flex align-items-center" href="{{route('manageSleeve')}}"><i class="fa fa-circle-thin" style="color: #8c4fec;" aria-hidden="true"></i>
         <span class="menu-item" data-i18n="Wish List">Manage Sleeve</span></a>
-    </li>
+    </li> -->
     <li><a class="d-flex align-items-center" href="{{ route('out_stock') }}"><i class="fa fa-circle-thin" style="color: #8c4fec;" aria-hidden="true"></i>
         <span class="menu-item" data-i18n="Wish List">Out of Stock</span></a>
     </li>
@@ -314,12 +314,11 @@ $note=$chat + $newUser + $unread + $calcle;
         </li>
         <li><a class="d-flex align-items-center" href="{{route('manageFooter')}}"><i class="fa fa-circle-thin" style="color: #8c4fec;" aria-hidden="true"></i><span class="menu-item" data-i18n="Details">Footer</span></a>
         </li>
-        <li><a class="d-flex align-items-center" href="{{route('manageReal')}}"><i class="fa fa-circle-thin" style="color: #8c4fec;" aria-hidden="true"></i><span class="menu-item" data-i18n="Wish List">Admin Real Brides</span></a>
+        <li><a class="d-flex align-items-center" href="{{route('manageReal')}}"><i class="fa fa-circle-thin" style="color: #8c4fec;" aria-hidden="true"></i><span class="menu-item" data-i18n="Wish List">Admin Real Products</span></a>
         </li>
         <li><a class="d-flex align-items-center" href="{{route('email_templates')}}"><i class="fa fa-circle-thin" style="color: #8c4fec;" aria-hidden="true"></i><span class="menu-item" data-i18n="Checkout">Email Templates</span></a>
         </li>
-        <li><a class="d-flex align-items-center" href="{{route('real_request_list')}}"><i class="fa fa-circle-thin" style="color: #8c4fec;" aria-hidden="true"></i><span class="menu-item" data-i18n="Checkout">Real Brides Requests </span></a>
-        </li>
+
         <li><a class="d-flex align-items-center" href="{{route('menu')}}"><i class="fa fa-circle-thin" style="color: #8c4fec;" aria-hidden="true"></i><span class="menu-item" data-i18n="Checkout">Menu Items</span></a>
         </li>
         <li><a class="d-flex align-items-center" href="{{route('customPage')}}"><i class="fa fa-circle-thin" style="color: #8c4fec;" aria-hidden="true"></i><span class="menu-item" data-i18n="Checkout">Custom Page</span></a>

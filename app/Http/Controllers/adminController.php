@@ -58,10 +58,6 @@ class AdminController extends Controller
          }
          $swatches=ColourSwatches::all();
          $category=Category::all();
-         $silhouette=silhouette::all();
-         $fabric=fabric::all();
-         $neckline=neckline::all();
-         $sleeve=sleeve::all();
          $total_products=products::all()->count();
          $counter=products::where('stock',0)->count();
          $outer=products::where('stock',0)->get();
@@ -72,24 +68,12 @@ class AdminController extends Controller
          {
             $product=products::where('category',$request->category)->where('delete_status',0)->orderBy('created_at', 'desc')->paginate(8);
          }
-         else if(isset($request->size))
-         {
-            $product=products::where('size', 'like', '%' . $request->size . '%')->where('delete_status',0)->orderBy('created_at', 'desc')->paginate(8);
-         }
-         else if(isset($request->color))
-         {
-            $product=products::where('colour', 'like', '%' . $request->color . '%')->where('delete_status',0)->orderBy('created_at', 'desc')->paginate(8);
-         }
-         else if(isset($request->style))
-         {
-            $product=products::where('styleNumber',$request->style)->where('delete_status',0)->orderBy('created_at', 'desc')->paginate(8);
-         }
          else
          {
          $product = products::orderBy('id','desc')->where('delete_status',0)->paginate(8);
         }
          return view('admin.products')
-         ->with(array('fabric'=>$fabric,'neckline'=>$neckline,'sleeve'=>$sleeve,'sale'=>$sale,'silhouette'=>$silhouette,'addition'=>$addition,'size'=>$size,'outer'=>$outer,'total_products'=>$total_products,
+         ->with(array('sale'=>$sale,'addition'=>$addition,'size'=>$size,'outer'=>$outer,'total_products'=>$total_products,
          'counter'=>$counter,'category'=>$category,'swatches'=>$swatches,'product'=>$product));
      }
 
@@ -487,10 +471,6 @@ class AdminController extends Controller
                 'bar'=>'required|unique:products,barcode',
                 'first'=>'required|image',
                 'category'=>'required|numeric',
-                'silhouette'=>'required|numeric',
-                'neckline'=>'required|numeric',
-                'fabric'=>'required|numeric',
-                'sleeve'=>'required|numeric',
                 'second'=>'image',
                 'third'=>'image',
                 'forth'=>'image',
@@ -512,10 +492,6 @@ class AdminController extends Controller
              $extra=null;  
             }
             $product->category=$request->category;
-            $product->silhouette=$request->silhouette;
-            $product->neckline=$request->neckline;
-            $product->fabric=$request->fabric;
-            $product->sleeve=$request->sleeve;
             if(isset($request->tag))
             {
             $product->tag=$request->tag;
@@ -579,7 +555,7 @@ class AdminController extends Controller
                      display: inline-block;
                      font-size: 16px;
                      margin: 4px 2px;
-                     cursor: pointer;" href="http://masal.com.au/detail/'.$new->id.'">View Product</a>
+                     cursor: pointer;" href="#">go and get product</a>
                      ';
 
                 $retailer=User::where('userRole',2)->where('status',1)->get();
@@ -628,14 +604,10 @@ class AdminController extends Controller
          }
         $swatches=ColourSwatches::all();
         $category=Category::all();
-        $silhouette=silhouette::all();
-        $fabric=fabric::all();
-        $neckline=neckline::all();
-        $sleeve=sleeve::all();
         $size=size::all();
         $addition=additional::all();
         $sale=sale::all();
-        return view('admin.addProduct')->with(array('sleeve'=>$sleeve,'neckline'=>$neckline,'fabric'=>$fabric,'silhouette'=>$silhouette,'sale'=>$sale,'swatches'=>$swatches,'category'=>$category,'size'=>$size,
+        return view('admin.addProduct')->with(array('sale'=>$sale,'swatches'=>$swatches,'category'=>$category,'size'=>$size,
         'addition'=>$addition));;
     }
     
@@ -714,12 +686,8 @@ class AdminController extends Controller
         $size=size::all();
         $addition=additional::all();
         $sale=sale::all();
-        $silhouette=silhouette::get();
-        $fabric=fabric::get();
-        $neckline=neckline::get();
-        $sleeve=sleeve::get();
         return view('admin.edit_product')->with(array('sale'=>$sale,'swatches'=>$swatches,'category'=>$category,'size'=>$size,
-        'addition'=>$addition,'silhouette'=>$silhouette,'fabric'=>$fabric,'neckline'=>$neckline,'sleeve'=>$sleeve,'product'=>$product));
+        'addition'=>$addition,'product'=>$product));
     }
 
 
@@ -746,16 +714,11 @@ class AdminController extends Controller
                 'key'=>'required',
                 'product_description'=>'required',
                 'category'=>'required',
-                'silhouette'=>'required',
-                'neckline'=>'required',
-                'fabric'=>'required',
-                'sleeve'=>'required',
                 'wholesale_price'=>'required',
                 'retail_price'=>'required',
                 'stock'=>'required',
                 'style'=>'required',
                 'bar'=>'required',
-                'size'=>'required'
                 ]);
                 if($request->style != $request->check_style)
                 {
@@ -784,10 +747,6 @@ class AdminController extends Controller
             $product->keyword=$request->key;
             $product->description=$request->product_description;
             $product->category=$request->category;
-            $product->silhouette=$request->silhouette;
-            $product->neckline=$request->neckline;
-            $product->fabric=$request->fabric;
-            $product->sleeve=$request->sleeve;
             if(isset($request->tag))
             {
                 if($request->tag != '354545')
@@ -800,7 +759,6 @@ class AdminController extends Controller
                 }
             }
             $product->colour=$request->colour;
-            $product->size=$size;
             $product->extra=$extra;
             $product->wholesalePrice=$request->wholesale_price;
             $product->retailerPrice=$request->retail_price;
@@ -826,7 +784,7 @@ class AdminController extends Controller
                      display: inline-block;
                      font-size: 16px;
                      margin: 4px 2px;
-                     cursor: pointer;" href="http://masal.com.au/detail/'.$product->id.'">View Product</a>
+                     cursor: pointer;" href="#">go and check Product</a>
                      ';
 
                 if($price_check != $request->wholesale_price)

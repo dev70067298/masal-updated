@@ -124,171 +124,16 @@
 
         
              <br>
-            <div class="form-group">
-        
-                <label class="col-md-12  h5  control-label" for="product_description">Select Product Silhouette</label>
-        
-                <div class="col-md-9">
-        
-                    <select class="form-control" name="silhouette" required>
-        
-                        <option selected disabled >Select Any Silhouette</option>
-        
-            
-        
-                        @if(count($silhouette) > 0)
-        
-                        @foreach ($silhouette as $row)
-        
-                    <option value="{{$row->id}}" >{{$row->name}}</option>
-        
-                        @endforeach
-        
-                        @else
-        
-                        <option disabled >No Silhouette Available</option>
-        
-                        @endif
-        
-            
-        
-                    </select>
-        
-                @if ($errors->has('silhouette')) <p style="color:red;">{{ $errors->first('silhouette') }}</p> @endif 
-        
-                
-        
-                </div>
-        
-                </div>
-        
-             <br>
-            <div class="form-group">
-        
-                <label class="col-md-12  h5  control-label" for="product_description">Select Product Neckline</label>
-        
-                <div class="col-md-9">
-        
-                    <select class="form-control" name="neckline" required>
-        
-                        <option selected disabled >Select Any Neckline</option>
-        
-                        @if(count($neckline) > 0)
-        
-                        @foreach ($neckline as $row)
-        
-                    <option value="{{$row->id}}" >{{$row->name}}</option>
-        
-                        @endforeach
-        
-                        @else
-        
-                        <option disabled >No Neckline Available</option>
-        
-                        @endif
-        
-            
-        
-                    </select>
-        
-                @if ($errors->has('neckline')) <p style="color:red;">{{ $errors->first('neckline') }}</p> @endif 
-        
-                
-        
-                </div>
-        
-                </div>
-        
-             <br>
-            <div class="form-group">
-        
-                <label class="col-md-12  h5  control-label" for="product_description">Select Product Fabric</label>
-        
-                <div class="col-md-9">
-        
-                    <select class="form-control" name="fabric" required>
-        
-                        <option selected disabled >Select Any Fabric</option>
-        
-            
-        
-                        @if(count($fabric) > 0)
-        
-                        @foreach ($fabric as $row)
-        
-                    <option value="{{$row->id}}" >{{$row->name}}</option>
-        
-                        @endforeach
-        
-                        @else
-        
-                        <option disabled >No Fabric Available</option>
-        
-                        @endif
-        
-            
-        
-                    </select>
-        
-                @if ($errors->has('fabric')) <p style="color:red;">{{ $errors->first('fabric') }}</p> @endif 
-        
-                
-        
-                </div>
-        
-                </div>
-        
-             <br>
-
-            <div class="form-group">
-        
-                <label class="col-md-12  h5  control-label" for="product_description">Select Product Sleeve</label>
-        
-                <div class="col-md-9">
-        
-                    <select class="form-control" name="sleeve" required>
-        
-                        <option selected disabled >Select Any Sleeve</option>
-        
-            
-        
-                        @if(count($sleeve) > 0)
-        
-                        @foreach ($sleeve as $row)
-        
-                    <option value="{{$row->id}}" >{{$row->name}}</option>
-        
-                        @endforeach
-        
-                        @else
-        
-                        <option disabled >No Sleeve Available</option>
-        
-                        @endif
-        
-            
-        
-                    </select>
-        
-                @if ($errors->has('sleeve')) <p style="color:red;">{{ $errors->first('sleeve') }}</p> @endif 
-        
-                
-        
-                </div>
-        
-                </div>
-        
-             <br>
         
             <div class="form-group">
         
-                <label class="col-md-12  h5   control-label" for="product_description">Available Colour Swatches</label>
+                <label class="col-md-12  h5   control-label" for="product_description">Available Colour</label>
         
                 <div class="col-md-9">
         
                     <select class="form-control" name="colour" required>
         
-                        <option selected disabled >Select Any Color Swatch</option>
+                        <option selected disabled >Select Any Color </option>
         
             
         
@@ -302,7 +147,7 @@
         
                         @else
         
-                        <option disabled >No Color Swatch Available</option>
+                        <option disabled >No Color Available</option>
         
                         @endif
         
@@ -435,7 +280,7 @@
         
             <div class="form-group">
         
-            <label class="col-md-12  h5   control-label" for="product-price">Style Number</label>
+            <label class="col-md-12  h5   control-label" for="product-price">SKU</label>
         
             <div class="col-md-9">
         

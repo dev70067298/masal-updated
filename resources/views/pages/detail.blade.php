@@ -675,20 +675,6 @@ content="Wedding Dresses, Designer Wedding Dresses, Masal , Modern Romance, Brid
             </li>
             
             <li>
-            <span class="attr-ul--span attr-ul--label">Fabric</span>
-            <span class="attr-ul--span attr-ul--value">{{ $fabric->name }}</span>
-            </li>
-            <li>
-            <span class="attr-ul--span attr-ul--label">Neckline</span>
-            <span class="attr-ul--span attr-ul--value">{{ $neck->name }}</span>
-            </li>
-            <li>
-            <span class="attr-ul--span attr-ul--label">Sleeve Type</span>
-            <span class="attr-ul--span attr-ul--value">{{ $seleve->name }}</span>
-            </li>
-            <li>
-            <span class="attr-ul--span attr-ul--label">Silhouette</span>
-            <span class="attr-ul--span attr-ul--value">{{ $silhouette->name }}</span>
             </li>
             </ul>
             
