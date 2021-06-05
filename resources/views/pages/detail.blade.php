@@ -659,19 +659,25 @@ content="Wedding Dresses, Designer Wedding Dresses, Masal , Modern Romance, Brid
             $colors = json_decode($detail->colour);
             $sizes = json_decode($detail->size);
             @endphp
+            @if(!empty($colors))
+           
             <span class="attr-ul--span attr-ul--value">
             @foreach($colors as $colo)
             {{ $colo }} &nbsp; 
             @endforeach
             </span>
+            @endif
             </li>
             
             <li>
             <span class="attr-ul--span attr-ul--label">Size:</span>
+            @if(!empty($sizes))
+
             <span class="attr-ul--span attr-ul--value"> 
             @foreach($sizes as $size)
             {{ $size }} &nbsp; 
             @endforeach</span>
+            @endif
             </li>
             
             <li>

@@ -61,6 +61,7 @@
                                             <input type="text" style="display: none;" value="{{ $row->id }}" name="id" id="">
                                         <td class="text-center">OID.{{$row->id}}</td>
                                         <td class="text-center" style="width: 300px;">{{$product->name}}</td>
+                                        @if(!empty($colors))
                                         <td class="text-center">
 
                                             <select name="color" class="form-control" id="color{{$row->id}}">
@@ -71,8 +72,8 @@
                                             </select>
 
                                         </td>
-
-
+@endif
+@if(!empty($sizes))
                                         <td class="text-center">
                                             <select name="size" class="form-control" id="size{{$row->id}}">
                                                 @foreach ($sizes as $size)
@@ -81,7 +82,7 @@
                                                 @endforeach
                                             </select>
                                         </td>
-                                        
+                                        @endif
                                         <td class="col-md-1 text-center">
                                             <select name="status" class="form-control" id="status{{$row->id}}">
 

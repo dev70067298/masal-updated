@@ -30,7 +30,7 @@
                 <h1>Price: ${{$product->wholesalePrice}}</h1>
                 <h3 class="mt-2"> Description <h3> 
               
-                    <a class="btn btn-primary mt-2 mb-2" href="{{ asset('images/products/chart.pdf') }}" style="color: white;" download="Size Chart"> Size Chart </a>
+                    <!-- <a class="btn btn-primary mt-2 mb-2" href="{{ asset('images/products/chart.pdf') }}" style="color: white;" download="Size Chart"> Size Chart </a> -->
                    <div style="overflow-x:auto; ">
                 @php
                    echo $product->description;
@@ -104,6 +104,7 @@
     @php
     $sizes = json_decode($product->size);
     @endphp
+    @if(!empty($sizes))
     <div class="form-group col-md-12 col-sm-12">
     <h3> Choose Size: <span style="font-size: 30px" id="sizer"></span></h3>
     <br>
@@ -114,17 +115,20 @@
     @if ($errors->has('size')) <p style="color:red;">{{ $errors->first('size') }}</p> @endif 
 
     </div>
+    @endif
     <div class="form-group col-md-12 col-sm-12 mt-2">
     <h3>Choose Colour: <span style="font-size: 30px" id="colourer"></span> </h3>
     <br>
     @php
     $colors = json_decode($product->colour);
     @endphp
+    @if(!empty($colors))
+
     @foreach ($colors as $color)
     <button type="button" class="btn badge badge-glow btn-primary color_press" value="{{$color}}"> {{$color}}</button>
 
     @endforeach    
-    
+    @endif
     <input type="text" style="display:none;" name="color" id="colour_choose">
     @if ($errors->has('color')) <p style="color:red;">{{ $errors->first('color') }}</p> @endif 
     </div>

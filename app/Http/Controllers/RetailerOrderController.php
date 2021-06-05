@@ -434,8 +434,6 @@ class RetailerOrderController extends Controller
          $detail=$request->detail;
         $this->validate($request,[
             'pId'=>'required',
-            'size'=>'required',
-            'color'=>'required',
             'quantity'=>'required|integer|min:1'
         ]);
         $preorder=retailerOrder::where([
@@ -638,8 +636,6 @@ class RetailerOrderController extends Controller
          $detail=$request->detail;
         $this->validate($request,[
             'pId'=>'required',
-            'size'=>'required',
-            'color'=>'required',
             'quantity'=>'required|integer'
         ]);
        $order =retailerOrder::find($request->pId);
