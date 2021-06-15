@@ -310,4 +310,19 @@ Route::post('/info_update', 'CrmController@info_update')->name('info_update');
 
 //app apis routes
 
-Route::get('/applogin', 'RetailerController@applogin');
+//sourcing
+Route::get('/sourcing', 'ApiappController@sourcing');
+//sourcing
+Route::get('/sourcelist', 'ApiappController@sourcelist');
+
+
+
+//login
+
+
+Route::get('/applogin', 'ApiappController@login');
+
+
+//logout
+
+Route::get('/applogout', 'ApiappController@logout');
