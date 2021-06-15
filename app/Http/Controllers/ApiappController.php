@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use DB;
+use Hash;
 
 class ApiappController extends Controller
 {
@@ -14,13 +16,13 @@ class ApiappController extends Controller
         $password=$request->password;
 
         $checkemail=DB::select('select * from users where email = ?', [$email]);
+        
+        $password12 = $checkemail[0]->password;
      if($checkemail){
         
-                $checkpass=DB::select ('select id,name,email from users where email = ? and password = ?', [$email,$password]);
-                    if($checkpass){
-                            DB::update('update users set status = ? where email = ? ', [1,$email ]);
+                if(Hash::check($password,$password12)) {
                         return response()->json([
-                            "status"=>$checkpass[0]->id,
+                            "status"=>$checkemail[0]->id,
                         ]);
 
                     }else{
@@ -45,9 +47,6 @@ class ApiappController extends Controller
      */
     public function logout(Request $request)
     { 
-        $id=$request->id;
-        $logout=DB::update('update users set status = 0 where id = ? ', [$id]);
-        if($logout){
         return response()->json([
             "status"=>true,
             "message"=>"logout successfully"
@@ -55,12 +54,6 @@ class ApiappController extends Controller
         
         ], 200);
 
-    }else{
-        return response()->json([
-            "status"=>false,
-            "message"=>"logout failed"
-        ], 200);
-    }
     }
     public function sourcing(Request $request)
     {

@@ -15,6 +15,10 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => 'prevent-back-history'],function(){
+
+});
+
 //Authentication Route
 Route::match(['get', 'post'], '/retailerrequest', 'AuthController@register')->name('retailerrequest');
 //admin
@@ -102,6 +106,7 @@ Route::get('/del_real/{id}', 'pagerController@del_real')->name('del_real');
 Route::get('/email_templates', 'EmailController@index')->name('email_templates');
 //Product Page
 Route::get('/product', 'AdminController@products')->name('products');
+Route::get('/source', 'AdminController@source')->name('source');
 
 Route::post('/admin_searcher', 'AdminController@admin_searcher')->name('admin_searcher');
 
@@ -113,6 +118,8 @@ Route::get('/addProductPage', 'AdminController@addProductPage')->name('addProduc
 Route::post('/imgUploader', 'AdminController@imgUploader')->name('imgUploader');
 //Edit product
 Route::get('/edit_product/{id}', 'AdminController@edit_product')->name('edit_product');
+Route::get('/edit_source/{id}', 'AdminController@edit_source')->name('edit_source');
+
 Route::post('/editor', 'AdminController@editor')->name('editor');
 Route::post('/update_order', 'AdminController@update_order')->name('update_order');
 Route::get('/edit_sale/{id}', 'AdminController@edit_sale')->name('edit_sale');
@@ -307,22 +314,13 @@ Route::post('/wedding_edit', 'RetailerController@wedding_edit')->name('wedding_e
 Route::post('/logo', 'RetailerController@logo')->name('logo');
 Route::post('/info_update', 'CrmController@info_update')->name('info_update');
 
-
 //app apis routes
 
 //sourcing
 Route::get('/sourcing', 'ApiappController@sourcing');
 //sourcing
 Route::get('/sourcelist', 'ApiappController@sourcelist');
-
-
-
 //login
-
-
 Route::get('/applogin', 'ApiappController@login');
-
-
 //logout
-
 Route::get('/applogout', 'ApiappController@logout');

@@ -260,6 +260,9 @@ $note=$chat + $newUser + $unread + $calcle;
 <li class=" nav-item"><a class="d-flex align-items-center" href="/product"><i class="fa fa-th-large" style="color: #8c4fec;" aria-hidden="true"></i>
     <span class="menu-title text-truncate" data-i18n="Calendar">Product</span></a>
 </li>
+<li class=" nav-item"><a class="d-flex align-items-center" href="/source"><i class="fa fa-th-large" style="color: #8c4fec;" aria-hidden="true"></i>
+    <span class="menu-title text-truncate" data-i18n="Calendar">Sourcing</span></a>
+</li>
 
 <li  class=" dropdown nav-item"><a class="d-flex align-items-center" href="#"><i class="fa fa-th" style="color: #8c4fec;" aria-hidden="true"></i>
     <span class="menu-title text-truncate" data-i18n="eCommerce">Product Assets</span></a>

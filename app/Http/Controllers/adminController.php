@@ -15,6 +15,7 @@ use App\neckline;
 use App\silhouette;
 use App\sleeve;
 use App\User;
+use App\source;
 use App\footer;
 use App\ColourSwatches;
 use DB;
@@ -76,7 +77,22 @@ class AdminController extends Controller
          ->with(array('sale'=>$sale,'addition'=>$addition,'size'=>$size,'outer'=>$outer,'total_products'=>$total_products,
          'counter'=>$counter,'category'=>$category,'swatches'=>$swatches,'product'=>$product));
      }
-
+     //sourcing Page
+     public function source(Request $request)
+     {
+         if (Auth::check()) {
+            if($this->user->userRole != 1)
+            {
+             return redirect('/admin');
+            }
+         }
+         else
+         {
+             return redirect('/admin');
+         }
+         $source=source::all();
+         return view('admin.source')->with(array('source'=>$source));
+     }
 
     // Real Bride Request Page
     public function real_request($id)
@@ -689,7 +705,27 @@ class AdminController extends Controller
         return view('admin.edit_product')->with(array('sale'=>$sale,'swatches'=>$swatches,'category'=>$category,'size'=>$size,
         'addition'=>$addition,'product'=>$product));
     }
+    public function edit_source($id)
+    {
+        if (Auth::check()) {
+            if($this->user->userRole != 1)
+            {
+             return redirect('/admin');
+            }
+         }
+         else
+         {
+             return redirect('/admin');
+         }
+         $source=source::find($id);
+         $source->status=1;
+         if($source->save()){
+         return redirect()->back()->with('success', 'Sourcing Product Approved');
+        }else{
+            return redirect()->back()->with('error', 'Sourcing Product Not Approved');
 
+        }
+    }
 
     //Product edit in database
     public function editor(Request $request)
@@ -874,8 +910,6 @@ class AdminController extends Controller
          }
             $this->validate($request,[
                 'id'=>'required',
-                'color'=>'required',
-                'size'=>'required',
                 'status'=>[
                     'required',
                     Rule::in(['pending','processing','completed','canceled']),
@@ -884,8 +918,6 @@ class AdminController extends Controller
                 ]);
                 $order=retailerOrder::find($request->id);
                 $status=$order->status;
-                $order->colour=$request->color;
-                $order->sizes=$request->size;
                 $order->status=$request->status;
                 if($request->status == 'completed' && $order->cancle_order_request == 1)
                 {
@@ -933,9 +965,6 @@ class AdminController extends Controller
                                 <th style="padding:20px; border: 1px solid black;" ><b>Image</b></th>
                                 <th style="padding:20px; border: 1px solid black;" ><b>Name</b></th>
                                 <th style="padding:20px; border: 1px solid black;" ><b>Notes</b></th>
-                                <th style="padding:20px; border: 1px solid black;" ><b>Color</b></th>
-                                <th style="padding:20px; border: 1px solid black;" ><b>Size</b></th>
-                                <th style="padding:20px; border: 1px solid black;" ><b>Extra</b></th>
                                 <th style="padding:20px; border: 1px solid black;" ><b>Style #</b></th>
                                 <th style="padding:20px; border: 1px solid black;" ><b>Quantity</b></th>
                                 <th style="padding:20px; border: 1px solid black;" ><b>Status</b></th>
@@ -973,9 +1002,6 @@ class AdminController extends Controller
                                    src='.asset('/images/'.$product->image1).'> </td>
                                     <td style="padding:20px; " > '.$product->name.' </td>
                                     <td style="padding:20px; border: 1px solid black;" > '.$retailer->detail.'  </td>
-                                    <td style="padding:20px; " > '.$retailer->colour.'  </td>
-                                    <td style="padding:20px; " > '.$retailer->sizes.' </td>
-                                    <td style="padding:20px; " > '.$extra.'  </td>
                                     <td style="padding:20px; border: 1px solid black;" > '.$product->styleNumber.' </td>
                                     <td style="padding:20px; " > '.$retailer->quantity.' </td>
                                     <td style="padding:20px; border: 1px solid black;" > '.$retailer->status.' </td>

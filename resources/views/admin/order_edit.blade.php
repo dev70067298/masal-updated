@@ -39,7 +39,6 @@
                                         <th class="text-center">Order Id</th>
                                         <th class="text-center">Product Name</th>
                                         <th class="text-center">Product Color</th>
-                                        <th class="text-center">Product Size</th>
                                         <th class="text-center">Order Status</th>
                                         <th class="text-center">Cancellation Requests </th>
                                         <th class="text-center">Product Quantity</th>
@@ -73,16 +72,6 @@
 
                                         </td>
 @endif
-@if(!empty($sizes))
-                                        <td class="text-center">
-                                            <select name="size" class="form-control" id="size{{$row->id}}">
-                                                @foreach ($sizes as $size)
-                                                <option value="{{$size}}" @if($row->sizes == $size) selected
-                                                    @endif>{{$size}}</option>
-                                                @endforeach
-                                            </select>
-                                        </td>
-                                        @endif
                                         <td class="col-md-1 text-center">
                                             <select name="status" class="form-control" id="status{{$row->id}}">
 
@@ -115,7 +104,6 @@
                                 </tbody>
                             </table>
                         </div>
-                        {{ $order->links() }}
             <!-- END Products Content -->
         </div>
     </section>

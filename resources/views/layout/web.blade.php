@@ -803,16 +803,15 @@
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-
-
     <script type="text/javascript">
-        /* curator-feed-default-feed-layout */
-        (function(){
-        var i, e, d = document, s = "script";i = d.createElement("script");i.async = 1;
-        i.src = "https://cdn.curator.io/published/31ee2922-31dc-4a2e-85ff-66c37e4f3f2b.js";
-        e = d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
-        })();
-        </script>
+/* curator-feed-default-feed-layout */
+(function(){
+var i, e, d = document, s = "script";i = d.createElement("script");i.async = 1;
+i.src = "https://cdn.curator.io/published/f408f0dd-0053-4e93-92d2-44e645d9b961.js";
+e = d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
+})();
+</script>
+
 
     <script>
         $(document).ready(function() {

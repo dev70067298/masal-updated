@@ -25,7 +25,7 @@
     <div class="row">   
         <div class="col-md-4 col-lg-4 col-sm-10 col-xs-10 mt-5">             
             <div class="nicdark_archive1 nicdark_border_grey img-magnifier-container">
-            <img id="main_image" class="main_image mx-auto d-block" style="height:600px;" alt="" src="{{ asset('images/'.$product->image1) }}">
+            <img id="main_image" class="main_image img-fluid mx-auto d-block" style="height:600px;" alt="" src="{{ asset('images/'.$product->image1) }}">
             </div>
             </div>
             <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 mt-5">
