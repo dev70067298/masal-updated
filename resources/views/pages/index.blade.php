@@ -16,12 +16,12 @@
                                 <div class="content-blocks">
                                     <div class="content-block slider-image">
                                         <div class="slider-bg mobile-bg has-background"
-                                            style="background-image: url('slides/big.jpg')">
-                                            <img src="slides/big.jpg" alt="" />
+                                            style="background-image: url('slides/baner.jpg')">
+                                            <img src="slides/baner.jpg" alt="" />
                                         </div>
                                         <div class="slider-bg desktop-bg has-background"
-                                            style="background-image: url('slides/big.jpg')">
-                                            <img src="{{ asset('slides/big.jpg') }}"
+                                            style="background-image: url('slides/baner.jpg')">
+                                            <img src="{{ asset('slides/baner.jpg') }}"
                                                 alt="" />
                                         </div>
                                     </div>

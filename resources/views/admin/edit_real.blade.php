@@ -30,7 +30,7 @@
                         <th class="text-center">Product Image</th>
                         <th class="text-center">Style Number</th>
                         <th class="text-center">Added</th>
-                        <th class="text-center">Real Bride</th>
+                        <th class="text-center">Real Product</th>
                     </tr>
                 </thead>
                 <tbody>

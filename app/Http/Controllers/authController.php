@@ -104,7 +104,7 @@ class AuthController extends Controller
         $fullAddress .= isset($request->city) ? ', ' . $request->city : '';
         $fullAddress .= isset($request->country) ? ', ' . $request->country : '';
         $cityclean = str_replace (" ", "+", $fullAddress);
-        $details_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" . $cityclean . "&key=AIzaSyAUx-lN2Wy6w2C0f2o14A3GgY--AqGiXPc";
+        $details_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" . $cityclean . "&key=AIzaSyAvzejWgiE4Y20d10Baf6-IAU_SuFZUa1Q";
      
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $details_url);

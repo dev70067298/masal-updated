@@ -183,8 +183,10 @@ class AdminController extends Controller
         foreach($current as $row)
             {
                 $prod=products::find($row->productId);
+               // dd($prod);
+                if(!empty($prod)){
                 $amount=$amount+$prod->wholesalePrice;
-            }
+                }}
         }  
         
         $total=0;
@@ -221,8 +223,10 @@ class AdminController extends Controller
                 foreach($orders as $item)
                 {
                     $prod=products::find($item->productId);
+                    if(!empty($prod)){
+
                     $sale=$sale+$prod->wholesalePrice;
-                }
+                        }}
             }
             $currentYear=Carbon::now()->year;
             $lastYear=Carbon::now()->subYear()->year;
@@ -235,7 +239,10 @@ class AdminController extends Controller
                 foreach($rev_this as $row)
                     {
                         $prod=products::find($row->productId);
+                        if(!empty($prod)){
+
                         $this_year_rev=$this_year_rev+$prod->wholesalePrice;
+                        }
                     }
                 }
 

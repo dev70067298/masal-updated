@@ -104,7 +104,7 @@
     
     
     
-    <div class="list-item desktop-left">
+    <div class="list-item desktop-left" style="display:none">
     <div class="control-panels">
     
     <div class="control-panels aside-filters has-sticky-submit" data-property="sticky-submit-parent">
@@ -120,9 +120,150 @@
     <div class="control-panel filters-accordeon" plp-filter>
     <div class="panel-group">
     
+    <div class="panel" id="attributeFabric">
+    <div class="panel-heading has-dropdown">
+    <span>Fabric</span>
+    </div>
+    <div id="attribute0" class="panel-collapse collapse in">
+    <div class="panel-body attrs">
+    <ul class="checkbox-list filter-list size-buttons">
+        @foreach ($fabric as $item)
+    <li>
+        <label class="pretty-input filter-input">
+            <input name="fabric[]"
+                    class="filter_1"
+                    type="checkbox"
+                    value="{{$item->id}}"
+                    data-property="attrs"
+                    data-value="57"
+                    aria-label="Attribute: Chiffon">
+            <i class="fake" aria-hidden="true"></i>
+            <span>{{$item->name}}</span>
+        </label>
+    </li>
+   @endforeach
+   
+    </ul>
+    </div>
+    </div>
+    </div>
+    <div class="panel" id="attributeNeckline">
+    <div class="panel-heading has-dropdown">
+    <span>Neckline</span>
+    </div>
+    <div id="attribute1" class="panel-collapse collapse in">
+    <div class="panel-body attrs">
+    <ul class="checkbox-list filter-list size-buttons">
+
+        @foreach ($neck as $item)
+    <li>
+        <label class="pretty-input filter-input">
+            <input name="neckline[]"
+                    class="filter_2"
+                    type="checkbox"
+                    value="{{$item->id}}"
+                    data-property="attrs"
+                    data-value="167"
+                    aria-label="Attribute: Bateau">
+            <i class="fake" aria-hidden="true"></i>
+            <span>{{$item->name}}</span>
+        </label>
+    </li>
+    @endforeach
+
+    </ul>
+    </div>
+    </div>
+    </div>
+
+
+    <div class="panel" id="attributeSilhouette">
+    <div class="panel-heading has-dropdown">
+        <a class="product-control control" data-toggle="collapse" data-parent="#attributeSilhouette" href="#attribute2">
+    <span>Silhouette</span>
+    <i class="control-sign" aria-hidden="true"></i>
+    </a>
+    <div class="dropdown dropdown-info">
+    <span class="info-addon" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" aria-label="Open Silhouette Info Popup">
+        <i class="icon-syvo icon-info-inside-circle" aria-hidden="true"></i>
+    </span>
+    <div class="dropdown-menu silhouette-menu">
+    <span class="fl-right close-dropdown"
+            data-trigger="cart"
+            role="button"
+            aria-label="Close Silhouette Filter"
+            aria-haspopup="false" 
+            aria-expanded="false"
+            aria-hidden="true">
+    </span>
+    <img src="{{ asset('images/silhouette/large.jpg') }}" alt="Silhouette Description" class="hidden-xs hidden-sm"/>
+    <img src="{{ asset('images/silhouette/small.jpg') }}" alt="Silhouette Description" class="hidden-gt-sm"/>
+                            
+    </div>
+    </div>
+    </div>
+    <div id="attribute2" class="panel-collapse collapse in">
+    <div class="panel-body attrs">
+    <ul class="checkbox-list filter-list size-buttons">
+
+        @foreach ($silhouette as $item)
+        <li>
+            <label class="pretty-input filter-input">
+                <input name="silhouette[]"
+                        class="filter_3"
+                        type="checkbox"
+                        value="{{$item->id}}"
+                        data-property="attrs"
+                        data-value="47"
+                        aria-label="Attribute: A-Line">
+                <i class="fake" aria-hidden="true"></i>
+                <span>{{$item->name}}</span>
+            </label>
+        </li>
+        @endforeach
+   
     
+   
+    </ul>
+    </div>
+    </div>
+    </div>
 
 
+
+
+    <div class="panel" id="attributeSleeve Type">
+    <div class="panel-heading has-dropdown">
+    <span> Type</span>
+    </div>
+    <div id="attribute3" class="panel-collapse collapse in">
+    <div class="panel-body attrs">
+    <ul class="checkbox-list filter-list size-buttons">
+
+        @foreach ($seleve as $item)
+        <li>
+            <label class="pretty-input filter-input">
+                <input name="sleeve[]"
+                        class="filter_4"
+                        type="checkbox"
+                        value="{{$item->id}}"
+                        data-property="attrs"
+                        data-value="14"
+                        aria-label="Attribute: Cap Sleeve">
+                <i class="fake" aria-hidden="true"></i>
+                <span>{{$item->name}}</span>
+            </label>
+        </li>
+        @endforeach
+   
+  
+   
+   
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
     <div class="control-btns sticky-submit" data-property="sticky-submit">
         <input type="submit" name="submit" value="Apply Filter" id="filter" class="btn btn-success">
         <input type="reset" value="Reset" class="btn btn-success-invert">
